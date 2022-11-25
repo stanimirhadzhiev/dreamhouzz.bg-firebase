@@ -1,0 +1,136 @@
+
+.headerSection {
+    position: fixed;
+    width: 1500px;
+    height: 150px;
+    top: 0%;
+    background-color: #fff;
+  }
+  .headerFirstContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: auto;
+    width: 90%;
+    height: 80px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .logo {
+    width: 200px;
+    height: 80px;
+  }
+  .searchSection {
+    display: flex;
+    width: 40%;
+    height: 35px;
+    border: 2px #D3D3D3 solid;
+  }
+  .srcBTN {
+    width: 40px;
+    height: 80%;
+    margin: 3.5px;
+    background-image: url(../../../public/images/icons/search-free-icon-font.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .searchBox {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 20px;
+    color: #949494;
+  }
+  .regContainer {
+    
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+  }
+  .guest {
+    width: 300px;
+    height: 35px;
+    
+  }
+  
+  .user {
+    height: 35px;
+  }
+
+  .signInBTN {
+    display: inline-block;
+    width: 120px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  .signInBTN:hover {
+    border-bottom: black solid 2px ;
+  }
+  .userIcon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-top: 7.5px;
+    margin-right: 5px;
+    background-image: url(../../../public/images/icons/user-free-icon-font.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .signInBTNtext {
+    display: inline-block;
+  }
+  .registrationBTN {
+    display: inline-block;
+    width: 170px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  .registrationIcon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-top: 7.5px;
+    margin-right: 5px;
+    background-image: url(../../../public/images/icons/briefcase-free-icon-font.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .registrationBTNtext {
+    color: #0066c3;
+  }
+  .registrationBTN:hover {
+    border-bottom: #0066c3 solid 2px;
+  }
+  .headerNavigation {
+    width: 1500px;
+    height: 50px;
+  }
+  .navContainer {
+    width: 70%;
+    height: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+  .navTxtBTN {
+    display: inline-block;
+  }
+  .navBTN {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navBTN:hover {
+    border-bottom: #0066c3 3px solid;
+  }

@@ -1,0 +1,158 @@
+.box {
+    width: 1500px;
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .tableMainSection {
+    width: 1200px;
+    margin: auto;
+    margin-top: 170px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  .filterSection {
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .filterSection h1 {
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 0;
+  }
+  .dropDown {
+    float: right;
+  }
+  .selectCity {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    padding: 10px;
+    margin-right: 20px;
+    border: #113350 2px solid;
+    cursor: pointer;
+  }
+  .selectBTNImg {
+    width: 20px;
+    height: 20px;
+    float: right;
+    background-image: url(../../../public/images/icons/icons8-drop-down-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .tableSection {
+    width: 1180px;
+    margin: auto;
+  }
+  .tableRow {
+    width: 1180px;
+    height: 200px;
+    padding: 10px 0px;
+    border-bottom: antiquewhite 2px solid ;
+    display: flex;
+    justify-content: space-between;
+  }
+  .tableRowIMG {
+    width: 370px;
+    height: 200px;
+    margin-right: 30px;
+  }
+  .tableRowIMG img {
+    width: 370px;
+    height: 200px;
+  }
+  .companyInformation {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  .basicInformation {
+    width: 100%;
+    height: 50px;
+    display: flex;
+  }
+  .peopleIMG {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  .companyName {
+    width: 100%;
+    height: 30px;
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  .ratingSection {
+    width: 100%;
+    height: 13px;
+    color: #F1C40F;
+    display: flex;
+    text-align: center;
+    font-size: 12px;
+    justify-content: space-between;
+  }
+  .ratingSection :first-child {
+    margin-right: 5px;
+  }
+  .ratingSection :last-child {
+    color: black;
+    margin-left: 5px;
+  }
+  .star {
+    width: 15px;
+    height: 15px;
+  }
+  .star1 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star2 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star3 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star4 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star5 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .moreInformation {
+    margin-top: 20px;
+  }
+  .companyContact {
+    width: 200px;
+    height: 200px;
+  }
+  .sendMessageBTN {
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    border-radius: 5px;
+    border: #113350 2px solid;
+    color: #113350;
+    background-color: #fff;
+    margin-bottom: 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .sendMessageBTN:hover {
+    color: #fff;
+    background-color: #113350;
+  }
+  .companyAddress {
+    text-align: center;
+  }

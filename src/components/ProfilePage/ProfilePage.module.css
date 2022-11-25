@@ -1,0 +1,250 @@
+.mainProfilPageSection {
+    width: 1200px;
+    margin: auto;
+    margin-top: 170px;
+    margin-bottom: 20px;
+  }
+  .contactContainer {
+    width: 360px;
+    height: 520px;
+    position: fixed;
+    right: 170px;
+  }
+  .messageContainer {
+    width: 323px;
+    height: 80px;
+    padding: 16px;
+    background-color: white;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    margin-bottom: 16px;
+  }
+  .messageContainerTxt {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  .sendMessageBTN {
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    border-radius: 5px;
+    border: #113350 2px solid;
+    color: white;
+    background-color: #113350;
+    margin-bottom: 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .sendMessageBTN:hover {
+    background-color: #245e90;
+    border: #245e90 2px solid;
+  }
+  .contactInformationContainer {
+    width: 323px;
+    padding: 16px;
+    background-color: white;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+  }
+  .contactInformationRow {
+    width: 323px;
+    display: flex;
+    padding: 10px 0px;
+    border-bottom: #cccccc 1px solid;
+  }
+  .contactInformationRow:last-child {
+    border-bottom: hidden;
+  }
+  .phoneIMG {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    margin-right: 20px;
+    background-image: url(../../../public/images/icons/icons8-phone-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .websiteIMG {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    margin-right: 20px;
+    background-image: url(../../../public/images/icons/icons8-website-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .addresIMG {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    margin-right: 20px;
+    background-image: url(../../../public/images/icons/icons8-map-marker-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .followersIMG {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    margin-right: 20px;
+    background-image: url(../../../public/images/icons/icons8-people-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .ProfilPageContainer {
+    width: 790px;
+    height: 100%;
+  }
+  .caroselCompanyPictures {
+    width: 100%;
+    height: 330px;
+    margin-bottom: 50px;
+  }
+  .caroselCompanyPictures img {
+    width: 790px;
+    height: 330px;
+  }
+  .companyInformation {
+    width: 790px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+  }
+  .basicInformation {
+    width: 100%;
+    height: 50px;
+    display: flex;
+  }
+  .peopleIMG {
+    width: 120px;
+    height: 120px;
+    margin-right: 50px;
+    border-radius: 50%;
+  }
+  .companyName {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: bold;
+    margin: 10px 0px;
+  }
+  .ratingSection {
+    width: 100%;
+    height: 13px;
+    color: #F1C40F;
+    display: flex;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    justify-content: space-between;
+  }
+  .ratingSection :first-child {
+    margin-right: 5px;
+  }
+  .ratingSection :last-child {
+    color: black;
+    margin-left: 5px;
+  }
+  .star {
+    width: 24px;
+    height: 24px;
+  }
+  .star1 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star2 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star3 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star4 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .star5 {
+    background-image: url(../../../public/images/icons/icons8-star-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .companyNavigation {
+    width: 100%;
+    height: 25px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #cccccc;
+    margin-top: 50px;
+  }
+  .companyNavigation nav {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .companyNavigation a:hover {
+    border-bottom: #0066c3 solid 2px;
+    font-weight: bold;
+    padding-bottom: 6px;
+  }
+  .detailedInformation {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #cccccc;
+  }
+  .projectsSection {
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #cccccc;
+  }
+  .projectsContainer {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .projectCard {
+    width: 385px;
+    height: 345px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background-color: aliceblue;
+  }
+  .projectCard h3 {
+    font-size: 14px;
+    margin-left: 20px;
+  }
+  .projectCard span {
+    font-size: 14px;
+    margin-left: 20px;
+  }
+  .projectCard:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .credentialSection {
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #cccccc;
+  }
+  .credentialContainer {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .credentialCard {
+    width: 385px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  

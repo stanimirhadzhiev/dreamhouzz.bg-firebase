@@ -1,0 +1,25 @@
+.container{
+    max-width: 800px;
+    margin: auto;
+    margin-top: 170px;
+    margin-bottom: 100px;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.inputStyle{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
