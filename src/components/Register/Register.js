@@ -37,7 +37,7 @@ const Register = ({setIsAuth}) => {
             console.log(error.message);
         }
         
-        navigate("/");
+        navigate("/edit-profile");
 
     }
 

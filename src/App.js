@@ -13,7 +13,7 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import EditProfile from './components/EditPrifile/EditProfile';
 import Footer from './components/Footer/Footer';
 
-import Architect from './components/Architect/Architect';
+import ArchitectureCompaniesList from './components/ArchitectureCompaniesList/ArchitectureCompaniesList';
 import InteriorDesign from './components/InteriorDesign/InteriorDesign';
 import LandscapeArchitect from './components/LandscapeArchitect/LandscapeArchitect';
 import BuildingCompanies from './components/BuildingCompanies/BuildingCompanies';
@@ -28,7 +28,7 @@ function App() {
     setUser(currentUser);
   });
 
-  
+
 
   return (
     <div className="App">
@@ -39,12 +39,13 @@ function App() {
               <Route path="/login" element={<Login setIsAuth={setIsAuth}/>} />
               <Route path="/logout" element={<Logout setIsAuth={setIsAuth}/>}/>
               <Route path="/register" element={<Register setIsAuth={setIsAuth}/>} />
-              <Route path="/architecture-companies" element={<Architect/>} />
+              <Route path="/edit-profile" element={<EditProfile isAuth={isAuth} user={user}/>} />
+              <Route path="/profile-page" element={<ProfilePage />} />
+
+              <Route path="/architecture-companies" element={<ArchitectureCompaniesList/>} />
               <Route path="/interior-design" element={<InteriorDesign/>} />
               <Route path="/landscape-architect" element={<LandscapeArchitect/>} />
               <Route path="/building-companies" element={<BuildingCompanies/>} />
-              <Route path="/profile-page" element={<ProfilePage />} />
-              <Route path="/edit-profile" element={<EditProfile isAuth={isAuth}/>} />
           </Routes>
                     
           <Footer/>

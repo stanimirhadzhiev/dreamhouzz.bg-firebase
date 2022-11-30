@@ -1,52 +1,4 @@
-.box {
-    width: 1500px;
-    margin-top: 20px;
-    font-family: 'Open Sans', sans-serif;
-  }
-  .tableMainSection {
-    width: 1200px;
-    margin: auto;
-    margin-top: 170px;
-    margin-bottom: 20px;
-    background-color: #fff;
-  }
-  .filterSection {
-    width: 100%;
-    height: 70px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .filterSection h1 {
-    margin-left: 20px;
-    display: inline-block;
-    margin-top: 0;
-  }
-  .dropDown {
-    float: right;
-  }
-  .selectCity {
-    width: 300px;
-    height: 40px;
-    font-size: 14px;
-    padding: 10px;
-    margin-right: 20px;
-    border: #113350 2px solid;
-    cursor: pointer;
-  }
-  .selectBTNImg {
-    width: 20px;
-    height: 20px;
-    float: right;
-    background-image: url(../../../public/images/icons/icons8-drop-down-24.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .tableSection {
-    width: 1180px;
-    margin: auto;
-  }
-  .tableRow {
-    width: 1180px;
+.tableRow {
     height: 200px;
     padding: 10px 0px;
     border-bottom: antiquewhite 2px solid ;
@@ -132,6 +84,10 @@
   }
   .moreInformation {
     margin-top: 20px;
+    height: 110px;
+    white-space:unset;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .companyContact {
     width: 200px;
@@ -155,4 +111,13 @@
   }
   .companyAddress {
     text-align: center;
+  }
+
+  .city{
+    background-color:#0066c3;
+    padding: 10px;
+    align-self: center;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
   }

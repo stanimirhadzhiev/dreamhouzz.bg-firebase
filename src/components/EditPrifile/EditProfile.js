@@ -1,37 +1,53 @@
 import style from './EditProfile.module.css'
 import { collection, addDoc } from "firebase/firestore";
 
-import { db, auth } from '../../firebaseConfig'
-import { useState } from 'react';
+import { db } from '../../firebaseConfig'
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
 
-const EditProfile = ({isAuth}) => {
-const navigate = useNavigate();
+const EditProfile = ({isAuth, user}) => {
+let navigate = useNavigate();
 
 const [companyName, setCompanyName] = useState("");
-const [category, setCategory] = useState("architectureAndDesign");
+const [category, setCategory] = useState("Архитектура и проектиране на сгради");
 const [companyInformation, setCompanyInformation] = useState("");
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
 const [phoneNumber, setPhoneNumber] = useState("");
 const [url, setUrl] = useState("");
-const [city, setCity] = useState("allCitties");
+const [city, setCity] = useState("Всички градове");
 const [street, setStreet] = useState("");
 
 
-const values = {companyName, category, companyInformation, firstName, lastName, phoneNumber, url, city, street};
+// const userInformation = {companyName, category, companyInformation, firstName, lastName, phoneNumber, url, city, street};
 const usersCollectionRef = collection(db, "users");
 
 
-const createUser = async () => {
-        await addDoc(usersCollectionRef, {
-        values
+const createUser = async (e) => {
+    e.preventDefault();
+    await addDoc(usersCollectionRef, {
+        // userInformation,
+        companyName,
+        category,
+        companyInformation,
+        firstName,
+        lastName,
+        phoneNumber,
+        url,
+        city,
+        street,
+        author: { email: user.email, id: user.uid },
     });
-    navigate('/')
+    navigate("/");
 };
-console.log(values); 
+
+useEffect(() => {
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, []);
 
     return (
         <div className={style.container}>
@@ -64,10 +80,10 @@ console.log(values);
                         value={category} 
                         onChange={(e) => {setCategory(e.target.value)}}
                     >
-                        <option value="architectureAndDesign">Архитектура &amp; проектиране на сгради</option>
-                        <option value="interiorDesign">Интериорен дизайн</option>
-                        <option value="landscapeArchitecture">Ландшафтна архитектура</option>
-                        <option value="constructionAndRepair">Строителство и ремонтни дейности</option>
+                        <option >Архитектура и проектиране на сгради</option>
+                        <option >Интериорен дизайн</option>
+                        <option >Ландшафтна архитектура</option>
+                        <option >Строителство и ремонтни дейности</option>
                     </select>
                 </div>
 
@@ -152,35 +168,35 @@ console.log(values);
                             value={city} 
                             onChange={(e) => {setCity(e.target.value)}}
                         >
-                            <option value="allCitties">Всички градове</option>
-                            <option value="sofia">София</option>
-                            <option value="plovdiv">Пловдив</option>
-                            <option value="varna">Варна</option>
-                            <option value="burgas">Бургас</option>
-                            <option value="ruse">Русе</option>
-                            <option value="staraZagora">Стара Загора</option> 
-                            <option value="pleven">Плевен</option>
-                            <option value="dobrich">Добрич</option>
-                            <option value="sliven">Сливен</option>
-                            <option value="shumen">Шумен</option>
-                            <option value="pernik">Перник</option>
-                            <option value="haskovo">Хасково</option>
-                            <option value="yambol">Ямбол</option>
-                            <option value="pazardzhik">Пазарджик</option>
-                            <option value="blagoevgrad">Благоевград</option>
-                            <option value="velikoTarnovo">Велико Търново</option>
-                            <option value="vraca">Враца</option>
-                            <option value="gabrovo">Габрово</option>
-                            <option value="asenovgrad">Асеновград</option>
-                            <option value="vidin">Видин</option>
-                            <option value="kardzhali">Кърджали</option>
-                            <option value="kiustendil">Кюстендил</option>
-                            <option value="montana">Монтана</option>
-                            <option value="targovishte">Търговище</option>
-                            <option value="silistra">Силистра</option>
-                            <option value="lovech">Ловеч</option>
-                            <option value="razgrad">Разград</option>
-                            <option value="smolqn">Смолян</option>
+                            <option >Всички градове</option>
+                            <option >София</option>
+                            <option >Пловдив</option>
+                            <option >Варна</option>
+                            <option >Бургас</option>
+                            <option >Русе</option>
+                            <option >Стара Загора</option> 
+                            <option >Плевен</option>
+                            <option >Добрич</option>
+                            <option >Сливен</option>
+                            <option >Шумен</option>
+                            <option >Перник</option>
+                            <option >Хасково</option>
+                            <option >Ямбол</option>
+                            <option >Пазарджик</option>
+                            <option >Благоевград</option>
+                            <option >Велико Търново</option>
+                            <option >Враца</option>
+                            <option >Габрово</option>
+                            <option >Асеновград</option>
+                            <option >Видин</option>
+                            <option >Кърджали</option>
+                            <option >Кюстендил</option>
+                            <option >Монтана</option>
+                            <option >Търговище</option>
+                            <option >Силистра</option>
+                            <option >Ловеч</option>
+                            <option >Разград</option>
+                            <option >Смолян</option>
                         </select>
                         <label htmlFor="street">
                             <b>Адрес</b>
