@@ -48,50 +48,27 @@
     border-radius: 5px;
   }
   .contactInformationRow {
-    width: 323px;
     display: flex;
+    width: 323px;
     padding: 10px 0px;
     border-bottom: #cccccc 1px solid;
   }
   .contactInformationRow:last-child {
     border-bottom: hidden;
   }
-  .phoneIMG {
+
+  .contactIcons{
     width: 16px;
     height: 16px;
     margin-top: 4px;
     margin-right: 20px;
-    background-image: url(../../../public/images/icons/icons8-phone-24.png);
-    background-repeat: no-repeat;
-    background-size: cover;
   }
-  .websiteIMG {
-    width: 16px;
-    height: 16px;
-    margin-top: 4px;
-    margin-right: 20px;
-    background-image: url(../../../public/images/icons/icons8-website-24.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+
+  .contactInformation{
+    width: 270px;
+    overflow-wrap: break-word;
   }
-  .addresIMG {
-    width: 16px;
-    height: 16px;
-    margin-top: 4px;
-    margin-right: 20px;
-    background-image: url(../../../public/images/icons/icons8-map-marker-24.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .followersIMG {
-    width: 16px;
-    height: 16px;
-    margin-top: 4px;
-    margin-right: 20px;
-    background-image: url(../../../public/images/icons/icons8-people-24.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
   .ProfilPageContainer {
     width: 790px;
     height: 100%;

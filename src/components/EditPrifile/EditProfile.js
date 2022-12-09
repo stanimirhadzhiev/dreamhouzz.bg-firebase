@@ -1,9 +1,17 @@
 import style from './EditProfile.module.css'
-import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
+import {
+    ref,
+    uploadBytes,
+    getDownloadURL,
+  } from "firebase/storage";
 
-import { db } from '../../firebaseConfig'
+import { db, storage } from '../../firebaseConfig';
+
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { async } from '@firebase/util';
 
 
 
@@ -19,15 +27,31 @@ const [phoneNumber, setPhoneNumber] = useState("");
 const [url, setUrl] = useState("");
 const [city, setCity] = useState("Всички градове");
 const [street, setStreet] = useState("");
+const [ avatarImageUpload, setAvatarImageUpload ] = useState(null);
+const [avatarImageUrl, setAvatarImageUrl] = useState("");
+
 
 
 // const userInformation = {companyName, category, companyInformation, firstName, lastName, phoneNumber, url, city, street};
-const usersCollectionRef = collection(db, "users");
+const usersCollectionRef = doc(db, "users", `${user.uid}`);
+const avatarImagesRef = ref(storage, `${user.uid}/profile-pictures/avatar.png`);
+
+const uploadAvatarImage = async (e) => {
+    e.preventDefault();
+    await uploadBytes(avatarImagesRef, avatarImageUpload).then((snapshot) => {
+        getDownloadURL(avatarImagesRef).then((url) => {
+            setAvatarImageUrl(url);
+        });
+    });
+    setAvatarImageUpload(null)
+}
 
 
 const createUser = async (e) => {
     e.preventDefault();
-    await addDoc(usersCollectionRef, {
+    
+
+    await setDoc(usersCollectionRef, {
         // userInformation,
         companyName,
         category,
@@ -38,8 +62,10 @@ const createUser = async (e) => {
         url,
         city,
         street,
+        avatarImageUrl,
         author: { email: user.email, id: user.uid },
     });
+
     navigate("/");
 };
 
@@ -53,6 +79,26 @@ useEffect(() => {
         <div className={style.container}>
             <h1 className={style.title}>Информация за фирмата</h1>
             <form className={style.formContainer}  >
+                <div className={style.row}>
+                    <div className={style["col"]}>
+                        {!avatarImageUrl ?
+                                <>
+                                    <div className={style["img-upload-button"]}>
+                                        <label htmlFor="myfile" className={style["img-upload"]}>+</label>
+                                        <input  type="file" id="myfile" name="myfile" hidden onChange={(e) => {setAvatarImageUpload(e.target.files[0])}}/>
+                                    </div>
+                                    {avatarImageUpload && <button onClick={uploadAvatarImage}>Качи Аватар</button>}
+                                </>
+                            :
+                                <div >
+                                    <img src={avatarImageUrl} alt="" className={style["avatar-img"]}/>
+                                </div>
+
+                        }
+                        
+                          
+                    </div>
+                </div>
                 <div className={style.row}>
                     <label htmlFor="companyName">
                         <b>Име на фирмата</b>
@@ -104,6 +150,7 @@ useEffect(() => {
 
                 <div>
                     <h2>Данни за контакт:</h2>
+                 
                     <div className={style.row}>
                         <label htmlFor="firstName">
                             <b>Лице за контакт</b>
@@ -211,10 +258,9 @@ useEffect(() => {
                             onChange={(e) => {setStreet(e.target.value)}}
                         />
                     </div>
+                    
                 </div>
-
-                
-                <button onClick={createUser}>Редактирай</button>
+                <button onClick={createUser} className={style.button}>Редактирай</button>
             </form>
         </div>
     );

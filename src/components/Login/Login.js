@@ -73,7 +73,7 @@ const Login = ({setIsAuth}) => {
                         onChange={(e) => {setPassword(e.target.value)}}  
                     />
 
-                    <button type="submit">Влез</button>
+                    <button className={styles.button} type="submit">Влез</button>
                     {/* <label htmlFor="remember">
                         <input type="checkbox" defaultChecked="checked" name="remember" />
                         Запомни ме
@@ -81,9 +81,9 @@ const Login = ({setIsAuth}) => {
                     </div>
                     <div className={styles.container} style={{ backgroundColor: "#f1f1f1" }}>
                     <button
+                        className={styles.cancelbtn}
                         type="button"
                         onClick={() => navigate('/')}
-                        className="cancelbtn"
                     >
                         Cancel
                     </button>

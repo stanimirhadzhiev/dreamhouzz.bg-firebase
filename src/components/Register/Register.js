@@ -99,7 +99,7 @@ const Register = ({setIsAuth}) => {
                         Общите условия и Защитата на личните данни на DreamHouZz.bg
                         </span>
                     </label>
-                    <button type="submit">Регистрация</button>
+                    <button className={style.button} type="submit">Регистрация</button>
                 </div>
                 <div className={style.container} style={{ backgroundColor: "#f1f1f1" }}>
                     <button

@@ -1,17 +1,27 @@
-import { Link } from 'react-router-dom';
-import style from './ArchitectureCompanie.module.css'
+import { Link, useNavigate } from 'react-router-dom';
+import style from './Company.module.css';
+import { useContext } from 'react';
+import { CompanyContext } from '../../context/companyContext';
 
-const ArchitectureCompanie = ({user}) => {
-    console.log({user});
+export const Company = ({user}) => {
+    const {setSelectedUser} = useContext(CompanyContext);
+    const navigate = useNavigate();
+    
+    const clickHandler = (e) =>{
+        e.preventDefault();
+        setSelectedUser(user);
+        navigate('/profile-page')
+    }
+
     return(
-        <Link to="/profile-page">
-            <div className={style.tableRow}>
+        <Link to="#" >
+            <div className={style.tableRow} onClick= {clickHandler}>
                 <div className={style.tableRowIMG}>
                     <img src="images/pexels-photo-1571460.jpeg" alt="" />
                 </div>
                 <div className={style.companyInformation}>
                     <div className={style.basicInformation}>
-                        <img className={style.peopleIMG} src="images/people.jpg" alt="" />
+                        <img className={style.peopleIMG} src={user.avatarImageUrl} alt="" />
                         <div className={style.basicInformationTxt}>
                             <div className={style.companyName}>{user.companyName}</div>
                             <div className={style.ratingSection}>
@@ -38,4 +48,3 @@ const ArchitectureCompanie = ({user}) => {
     );
 };
 
-export default ArchitectureCompanie;

@@ -1,37 +1,41 @@
 import style from './ProfilePage.module.css';
+import { Link } from 'react-router-dom';
+
+import { CompanyContext } from '../../context/companyContext';
+import { useContext } from 'react';
 
 const ProfilePage = () => {
-
-
+const { selectedUser } = useContext(CompanyContext);
+console.log(selectedUser);
 return(
         <>
             <div className={style.contactContainer}>
                 <div className={style.messageContainer}>
                     <div className={style.messageContainerTxt}>
-                        Свържете се с SVH Build Ltd.
+                        Свържете се с {selectedUser.companyName}
                     </div>
                     <button className={style.sendMessageBTN}>Изпрати съобщение</button>
                 </div>
                 <div className={style.contactInformationContainer}>
                     <div className={style.contactInformationRow}>
-                        <div className={style.phoneIMG}></div>
-                        <a href="tel:0892319876">+359 892319876</a>
+                        <img className={style.contactIcons} src='images/icons/icons8-phone-24.png'/>
+                        <div className={style.contactInformation}>{selectedUser.phoneNumber}</div>
                     </div>
                     <div className={style.contactInformationRow}>
-                        <div className={style.websiteIMG}></div>
-                        <a href="http://geopartner.bg/">Website</a>
+                        <img className={style.contactIcons} src='images/icons/icons8-website-24.png'/>
+                        <div className={style.contactInformation}>{selectedUser.url}</div>
                     </div>
                     <div className={style.contactInformationRow}>
-                        <div className={style.addresIMG}></div>
-                        <div>gr. Burgas , Slaveikov 205</div>
+                        <img className={style.contactIcons} src='images/icons/icons8-map-marker-24.png'/>
+                        <div className={style.contactInformation}>гр. {selectedUser.city} , {selectedUser.street}</div>
                     </div>
-                    <div className={style.contactInformationRow}>
-                        <div class={style.followersIMG}></div>
+                    {/* <div className={style.contactInformationRow}>
+                        <img className={style.contactIcons} src='images/icons/icons8-people-24.png'/>
                         <div>18 Последователи</div>
                     </div>
                     <div className={style.contactInformationRow}>
-                        <a href="#">+ Последвай ни</a>
-                    </div>
+                        <Link to="#">+ Последвай ни</Link>
+                    </div> */}
                 </div>
             </div>
 
@@ -43,10 +47,10 @@ return(
 
                     <div className={style.companyInformation}>
                         <div className={style.basicInformation}>
-                            <img className={style.peopleIMG} src="images/people.jpg" alt=""/>
+                            <img className={style.peopleIMG} src={selectedUser.avatarImageUrl} alt=""/>
                             <div className= {style.basicInformationTxt}>
                                 <div className={style.companyName}>
-                                    SVH Build Ltd.
+                                    {selectedUser.companyName}
                                 </div>
                                 <div className={style.ratingSection}>
                                     <span>4.0</span>
@@ -72,14 +76,7 @@ return(
                         </nav>
                     </div>
                     <p className={style.detailedInformation}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ex obcaecati atque odio nam, exercitationem ullam molestias libero cumque cum facilis. Officiis dolore, illo at consequatur porro ad odio quo!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ex obcaecati atque odio nam, exercitationem ullam molestias libero cumque cum facilis. Officiis dolore, illo at consequatur porro ad odio quo!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ex obcaecati atque odio nam, exercitationem ullam molestias libero cumque cum facilis. Officiis dolore, illo at consequatur porro ad odio quo!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ex obcaecati atque odio nam, exercitationem ullam molestias libero cumque cum facilis. Officiis dolore, illo at consequatur porro ad odio quo!
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ex obcaecati atque odio nam, exercitationem ullam molestias libero cumque cum facilis. Officiis dolore, illo at consequatur porro ad odio quo!
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ex obcaecati atque odio nam, exercitationem ullam molestias libero cumque cum facilis. Officiis dolore, illo at consequatur porro ad odio quo!
+                        {selectedUser.companyInformation}
                     </p>
                     <div className={style.projectsSection}>
                         <h2>00 Проекти</h2>
