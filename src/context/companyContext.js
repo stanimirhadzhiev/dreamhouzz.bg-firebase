@@ -4,7 +4,7 @@ export const CompanyContext = createContext();
 
 
 export const CompanyProvider = ({children}) => {
-    const [ selectedUser, setSelectedUser ] = useState(null);
+    const [ selectedUser, setSelectedUser ] = useState({});
 
     return(
         <CompanyContext.Provider value={{selectedUser, setSelectedUser}}>

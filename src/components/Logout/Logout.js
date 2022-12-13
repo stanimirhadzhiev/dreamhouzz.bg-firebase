@@ -4,12 +4,15 @@ import { signOut } from 'firebase/auth'
 import { auth } from '../../firebaseConfig'
 
 
-const Logout =  ({setIsAuth}) =>{
+import { AuthContext } from '../../context/AuthContext';
+
+
+const Logout =  () =>{
+    const {userLogout} = useContext(AuthContext);
     const navigate = useNavigate();
     signOut(auth)
         .then(() => {
-            localStorage.clear();
-            setIsAuth(false);
+            userLogout()
             navigate('/')
         })   
 };

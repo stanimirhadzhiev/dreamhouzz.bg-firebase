@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import style from './Company.module.css';
 import { useContext } from 'react';
-import { CompanyContext } from '../../context/companyContext';
+import { CompanyContext } from '../../context/CompanyContext';
 
 export const Company = ({user}) => {
     const {setSelectedUser} = useContext(CompanyContext);
@@ -11,7 +11,7 @@ export const Company = ({user}) => {
         e.preventDefault();
         setSelectedUser(user);
         navigate('/profile-page')
-    }
+    };
 
     return(
         <Link to="#" >

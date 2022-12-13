@@ -1,5 +1,5 @@
 import style from './EditProfile.module.css'
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import {
     ref,
     uploadBytes,
@@ -7,15 +7,17 @@ import {
   } from "firebase/storage";
 
 import { db, storage } from '../../firebaseConfig';
-
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { async } from '@firebase/util';
 
 
 
-const EditProfile = ({isAuth, user}) => {
+
+const EditProfile = ({isAuth}) => {
+    const {user} = useContext(AuthContext);
 let navigate = useNavigate();
 
 const [companyName, setCompanyName] = useState("");

@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 import styles from './Header.module.css';
 
 
 
-const Header = ({ isAuth, user }) => {
+const Header = () => {
+    const {user} = useContext(AuthContext);
+    
     return (
         <header className={styles.headerSection}>
             <div className={styles.headerFirstContainer}>
@@ -23,7 +27,7 @@ const Header = ({ isAuth, user }) => {
                     />
                 </div>
                 <div className={styles.regContainer}>
-                   {isAuth ?
+                   {user ?
                            <div className={styles.user}>
                                 
                                 <button className={styles.signInBTN}>
@@ -36,8 +40,10 @@ const Header = ({ isAuth, user }) => {
                                         </div>
                                         <div className={styles["dropdown-content"]}>
                                             <h3 className={styles["dropdown-header"]}>{user.email}</h3>
-                                            <Link to="#">Профил</Link>
-                                            <Link to="#">Редактирай профил</Link>
+                                            <Link to="/profile-page">Профил</Link>
+                                            <Link to="/edit-profile">Редактирай профил</Link>
+                                            <Link to="/create-project">Добави проект</Link>
+                                            <Link to="#">Добави сертификат</Link>
                                             <Link to="#">Промяна на парола</Link>
                                             <Link to="#">Промяна на e-mail</Link>
                                         </div>

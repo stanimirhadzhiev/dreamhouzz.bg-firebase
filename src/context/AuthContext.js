@@ -1,0 +1,31 @@
+import { createContext, useState} from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
+
+
+export const AuthContext = createContext();
+
+
+export const AuthProvider = ({children}) => {
+    const [user, setUser] = useLocalStorage('user', {});
+
+    const setCurrentUser = onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    });
+    
+    const userLogout = () =>{
+        setUser({});
+    };  
+    
+    return(
+        <AuthContext.Provider value={{
+            user, 
+            setUser,
+            userLogout,
+            setCurrentUser,
+        }}>
+            {children}
+        </AuthContext.Provider>
+    );
+}

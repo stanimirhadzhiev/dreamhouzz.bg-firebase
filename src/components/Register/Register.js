@@ -25,7 +25,7 @@ const Register = ({setIsAuth}) => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
-            return;
+            return(alert('Wrong email or password'));
         }
 
         try {

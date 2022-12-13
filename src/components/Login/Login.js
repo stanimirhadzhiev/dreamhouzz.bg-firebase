@@ -3,31 +3,35 @@ import {useNavigate, Link} from "react-router-dom";
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebaseConfig'
 import { useState } from "react";
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 
 import styles from './Login.module.css';
 
 
-const Login = ({setIsAuth}) => {
+const Login = () => {
+    const {setCurrentUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
-    const onSubmit =  (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        const user =  signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                localStorage.setItem("isAuth", true);
-                setIsAuth(true);
-                console.log(user);
+        await signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                setCurrentUser()
+                navigate("/");
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorCode);
+                console.log(errorMessage);
+                if(errorCode === "auth/wrong-password"){
+                    alert("Wrong password");
+                };
             });
-        navigate("/");
     };
     return (
 

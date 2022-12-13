@@ -1,12 +1,12 @@
 import style from './ProfilePage.module.css';
 import { Link } from 'react-router-dom';
 
-import { CompanyContext } from '../../context/companyContext';
+import { CompanyContext } from '../../context/CompanyContext';
 import { useContext } from 'react';
 
 const ProfilePage = () => {
 const { selectedUser } = useContext(CompanyContext);
-console.log(selectedUser);
+
 return(
         <>
             <div className={style.contactContainer}>
