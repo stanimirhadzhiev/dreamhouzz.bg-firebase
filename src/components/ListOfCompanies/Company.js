@@ -1,7 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
 import style from './Company.module.css';
-import { useContext } from 'react';
+
 import { CompanyContext } from '../../context/CompanyContext';
+
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 export const Company = ({user}) => {
     const {setSelectedUser} = useContext(CompanyContext);
@@ -14,7 +16,6 @@ export const Company = ({user}) => {
     };
 
     return(
-        <Link to="#" >
             <div className={style.tableRow} onClick= {clickHandler}>
                 <div className={style.tableRowIMG}>
                     <img src="images/pexels-photo-1571460.jpeg" alt="" />
@@ -44,7 +45,6 @@ export const Company = ({user}) => {
                     </div>
                 </div>
             </div>
-        </Link>
     );
 };
 

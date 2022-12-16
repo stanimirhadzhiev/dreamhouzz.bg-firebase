@@ -1,17 +1,19 @@
-import { useNavigate } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
-
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebaseConfig'
-
- 
 import style from './Register.module.css';
 
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+import { AuthContext } from '../../context/AuthContext';
+
+import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
 
 
 
-const Register = ({setIsAuth}) => {
-    const infoRef = useRef();
+
+
+const Register = () => {
+    const {setCurrentUser} = useContext(AuthContext);
+    
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -29,10 +31,8 @@ const Register = ({setIsAuth}) => {
         }
 
         try {
-            const user = await createUserWithEmailAndPassword(auth, email, password);
-            localStorage.setItem("isAuth", true);
-            setIsAuth(true)
-            console.log(user);
+            await createUserWithEmailAndPassword(auth, email, password);
+            setCurrentUser();
         } catch (error) {
             console.log(error.message);
         }

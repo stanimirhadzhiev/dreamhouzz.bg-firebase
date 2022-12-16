@@ -22,35 +22,29 @@ import {ListOfCompanies} from './components/ListOfCompanies/ListOfCompanies';
 import './App.css';
 
 function App() {
-  
-  const [isAuth, setIsAuth] = useLocalStorage('isAuth', false);
-  
-  
-
-
-
 
   return (
     <div className="App">
       <div className="box">
         <AuthProvider>
-          <Header />
           <CompanyProvider>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/logout" element={<Logout />}/>
-                <Route path="/register" element={<Register setIsAuth={setIsAuth}/>} />
-                <Route path="/edit-profile" element={<EditProfile isAuth={isAuth}/>} />
-                {/* <Route path="/upload-profile-images" element={<UploadProfileImages isAuth={isAuth} user={user}/>} /> */}
-                <Route path="/profile-page" element={<ProfilePage />} />
-                <Route path="/create-project" element={<CreateProject/>} />
+            <Header/>
+            
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/logout" element={<Logout />}/>
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/edit-profile" element={<EditProfile/>} />
+                  <Route path="/profile-page" element={<ProfilePage />} />
+                  <Route path="/create-project" element={<CreateProject/>} />
 
 
-                <Route path="/:categories" element={<ListOfCompanies/>} />
-            </Routes>
-          </CompanyProvider>         
-          <Footer/>
+                  <Route path="/:categories" element={<ListOfCompanies/>} />
+              </Routes>
+                    
+            <Footer/>
+          </CompanyProvider> 
         </AuthProvider>
       </div>
     </div>

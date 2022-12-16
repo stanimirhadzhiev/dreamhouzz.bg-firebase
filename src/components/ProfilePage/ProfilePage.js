@@ -1,12 +1,28 @@
 import style from './ProfilePage.module.css';
-import { Link } from 'react-router-dom';
+
+import { collection, query, where, getDocs} from "firebase/firestore";
+import { db } from '../../firebaseConfig';
 
 import { CompanyContext } from '../../context/CompanyContext';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 const ProfilePage = () => {
 const { selectedUser } = useContext(CompanyContext);
+const [projectList, setProjectList] = useState([]);
 
+var projectCollectionRef = query(collection(db, "projects"), where("id", "==", `${selectedUser.id}`));
+console.log(selectedUser.id);
+
+useEffect(() => {
+    const getProjectList = async () => {
+        const data = await getDocs(projectCollectionRef);
+        setProjectList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getProjectList();
+  }, []);
+
+console.log(projectList);
 return(
         <>
             <div className={style.contactContainer}>
@@ -41,9 +57,9 @@ return(
 
             <main className={style.mainProfilPageSection}>
                 <div className={style.ProfilPageContainer}>
-                    <div className={style.caroselCompanyPictures}>
+                    {/* <div className={style.caroselCompanyPictures}>
                         <img src="images/05-scaled.webp" alt=""/>
-                    </div>
+                    </div> */}
 
                     <div className={style.companyInformation}>
                         <div className={style.basicInformation}>
@@ -52,7 +68,7 @@ return(
                                 <div className={style.companyName}>
                                     {selectedUser.companyName}
                                 </div>
-                                <div className={style.ratingSection}>
+                                {/* <div className={style.ratingSection}>
                                     <span>4.0</span>
                                     <span className={style.star}></span>
                                     <span className={style.star}></span>
@@ -60,7 +76,7 @@ return(
                                     <span className={style.star}></span>
                                     <span className={style.star}></span>
                                     <span className={style.numReviews}>30 Ревюта</span>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -79,15 +95,17 @@ return(
                         {selectedUser.companyInformation}
                     </p>
                     <div className={style.projectsSection}>
-                        <h2>00 Проекти</h2>
+                        <h2>{projectList.length} Проектa</h2>
                         <div className={style.projectsContainer}>
-
-                            <div className={style.projectCard}>
-                                <img src="images/landscape.jpg" alt="" width="385px" height="257px"/>
-                                <h3>Име на проекта динамично генерирано</h3>
-                                <span>00 Снимки</span>
-                            </div>
-
+                            {projectList.length > 0
+                                ?   projectList.map(project => 
+                                        <div className={style.projectCard} key={project.id}>
+                                            <img src={project.imageUrls[0]} alt="" width="385px" height="257px"/>
+                                            <h3>{project.projectName}</h3>
+                                        </div>
+                                    )    
+                                :   <h3 className="no-articles">No articles yet</h3>
+                            }
                         </div>
                     </div>
                     <div className={style.credentialSection}>

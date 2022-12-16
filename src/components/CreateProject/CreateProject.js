@@ -1,22 +1,25 @@
 import style from './CreateProject.module.css';
-import { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { v4 } from "uuid";
-import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
 
 import { doc, setDoc } from "firebase/firestore";
+import { db, storage } from '../../firebaseConfig';
 import {
     ref,
     uploadBytes,
     getDownloadURL,
   } from "firebase/storage";
-import { db, storage } from '../../firebaseConfig';
+
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+import { CompanyContext } from '../../context/CompanyContext';
+
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 
 
 export const CreateProject = () => {
     const {user} = useContext(AuthContext);
+    const {projectId} = useContext(CompanyContext);
     let navigate = useNavigate();
 
     const [projectName, setProjectName] = useState("");
@@ -24,14 +27,14 @@ export const CreateProject = () => {
     const [imageUpload, setImageUpload] = useState({});
     const [imageUrls, setImageUrls] = useState([]);
 
-    const usersCollectionRef = doc(db, "projects", `${v4()}`);
-    const projectImagesRef = ref(storage, `${user.uid}/project-pictures/${imageUpload.name}`);
+    const projectCollectionRef = doc(db, "projects", `${projectId}`);
+    const projectImagesRef = ref(storage, `${user.uid}/project-pictures/${projectId}/${imageUpload.name}`);
     
-    console.log(imageUpload);
+    
     const createProject = async (e) =>{
         e.preventDefault();
 
-        await setDoc(usersCollectionRef, {
+        await setDoc(projectCollectionRef, {
             projectName,
             projectInformation,
             imageUrls,
@@ -54,7 +57,7 @@ export const CreateProject = () => {
         };
         
     }, [imageUpload]);
-    console.log(imageUrls);
+   
     return(
         <div className={style.container}>
             <h1 className={style.title}>Информация за проекта</h1>
@@ -100,7 +103,6 @@ export const CreateProject = () => {
                         <div className={style["card-img"]}>
                             <label htmlFor="uploadImg" className={style["img-upload"]}>Добави снимка</label>
                             <input  type="file" id="uploadImg" name="uploadImg" hidden onChange={(e) => {setImageUpload(e.target.files[0])}}/>
-                            {/* <button onClick={uploadImage}>upload</button> */}
                         </div>
                     </div>
                 </div>

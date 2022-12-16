@@ -1,13 +1,14 @@
+import style from './Login.module.css';
+
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { AuthContext } from '../../context/AuthContext';
+import { auth } from '../../firebaseConfig'
 
 import {useNavigate, Link} from "react-router-dom";
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../firebaseConfig'
-import { useState } from "react";
-import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import { useState, useContext } from "react";
 
 
-import styles from './Login.module.css';
+
 
 
 const Login = () => {
@@ -35,15 +36,15 @@ const Login = () => {
     };
     return (
 
-        <div id="id01" className={styles.modal} >
+        <div id="id01" className={style.modal} >
             <form
-                className={`${styles.modalContent} ${styles.animate}`}
+                className={`${style.modalContent} ${style.animate}`}
                 onSubmit={onSubmit}
             >
-                <div className={styles.imgcontainer}>
+                <div className={style.imgcontainer}>
                     <span
                         onClick={() => navigate('/')}
-                        className={styles.close}
+                        className={style.close}
                         title="Close Modal"
                     >
                         ×
@@ -51,10 +52,10 @@ const Login = () => {
                     <img
                         src="images/icons/110-1100707_person-avatar-placeholder.png"
                         alt="Avatar"
-                        className={styles.avatar}
+                        className={style.avatar}
                     />
                 </div>
-                <div className={styles.container}>
+                <div className={style.container}>
                     <label htmlFor="email">
                         <b>E-mail</b>
                     </label>
@@ -77,23 +78,20 @@ const Login = () => {
                         onChange={(e) => {setPassword(e.target.value)}}  
                     />
 
-                    <button className={styles.button} type="submit">Влез</button>
-                    {/* <label htmlFor="remember">
-                        <input type="checkbox" defaultChecked="checked" name="remember" />
-                        Запомни ме
-                    </label> */}
-                    </div>
-                    <div className={styles.container} style={{ backgroundColor: "#f1f1f1" }}>
+                    <button className={style.button} type="submit">Влез</button>
+
+                </div>
+                <div className={style.container} style={{ backgroundColor: "#f1f1f1" }}>
                     <button
-                        className={styles.cancelbtn}
+                        className={style.cancelbtn}
                         type="button"
                         onClick={() => navigate('/')}
                     >
                         Cancel
                     </button>
-                    <span className={styles.psw}>
+                    {/* <span className={style.psw}>
                         Забравена<Link to="#">парола?</Link>
-                    </span>
+                    </span> */}
                 </div>
             </form>
         </div>

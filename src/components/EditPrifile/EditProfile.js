@@ -1,25 +1,29 @@
-import style from './EditProfile.module.css'
-import { doc, setDoc } from "firebase/firestore";
+import style from './EditProfile.module.css';
+
+import { storage } from '../../firebaseConfig';
 import {
     ref,
     uploadBytes,
     getDownloadURL,
   } from "firebase/storage";
 
-import { db, storage } from '../../firebaseConfig';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
-import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+
+import * as userService from '../../services/userService'
 
 
 
 
-const EditProfile = ({isAuth}) => {
-    const {user} = useContext(AuthContext);
+
+
+
+const EditProfile = () => {
+const {user} = useContext(AuthContext);
 let navigate = useNavigate();
-
 const [companyName, setCompanyName] = useState("");
 const [category, setCategory] = useState("Архитектура и проектиране на сгради");
 const [companyInformation, setCompanyInformation] = useState("");
@@ -32,11 +36,24 @@ const [street, setStreet] = useState("");
 const [ avatarImageUpload, setAvatarImageUpload ] = useState(null);
 const [avatarImageUrl, setAvatarImageUrl] = useState("");
 
+const [currentUser, setCurrentUser] = useState({});
 
-
-// const userInformation = {companyName, category, companyInformation, firstName, lastName, phoneNumber, url, city, street};
-const usersCollectionRef = doc(db, "users", `${user.uid}`);
 const avatarImagesRef = ref(storage, `${user.uid}/profile-pictures/avatar.png`);
+
+const userData = {
+    companyName,
+    category,
+    companyInformation,
+    firstName,
+    lastName,
+    phoneNumber,
+    url,
+    city,
+    street,
+    avatarImageUrl,
+    email: user.email, 
+    id: user.uid,
+};
 
 const uploadAvatarImage = async (e) => {
     e.preventDefault();
@@ -46,59 +63,60 @@ const uploadAvatarImage = async (e) => {
         });
     });
     setAvatarImageUpload(null)
-}
+};
 
 
-const createUser = async (e) => {
+const onClickCreateUser = async (e) => {
     e.preventDefault();
-    
-
-    await setDoc(usersCollectionRef, {
-        // userInformation,
-        companyName,
-        category,
-        companyInformation,
-        firstName,
-        lastName,
-        phoneNumber,
-        url,
-        city,
-        street,
-        avatarImageUrl,
-        author: { email: user.email, id: user.uid },
-    });
+    userService.createUser(userData, user)
 
     navigate("/");
 };
 
-useEffect(() => {
-    if (!isAuth) {
-      navigate("/login");
-    }
-  }, []);
 
+
+const onClickEditUser = async (e) =>{
+    e.preventDefault();
+    userService.editUser(userData, user)
+    
+    navigate("/");
+};
+
+
+
+useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }else{
+        userService.getUser( setCurrentUser, user );
+    } 
+  }, []);
+  
     return (
         <div className={style.container}>
             <h1 className={style.title}>Информация за фирмата</h1>
             <form className={style.formContainer}  >
                 <div className={style.row}>
                     <div className={style["col"]}>
-                        {!avatarImageUrl ?
+                        {!currentUser.avatarImageUrl ?
                                 <>
                                     <div className={style["img-upload-button"]}>
                                         <label htmlFor="myfile" className={style["img-upload"]}>+</label>
-                                        <input  type="file" id="myfile" name="myfile" hidden onChange={(e) => {setAvatarImageUpload(e.target.files[0])}}/>
+                                        <input  
+                                            type="file" 
+                                            id="myfile" 
+                                            name="myfile"
+                                            defaultValue={currentUser.avatarImageUrl}
+                                            hidden onChange={(e) => {setAvatarImageUpload(e.target.files[0])}}
+                                        />
                                     </div>
                                     {avatarImageUpload && <button onClick={uploadAvatarImage}>Качи Аватар</button>}
                                 </>
                             :
                                 <div >
-                                    <img src={avatarImageUrl} alt="" className={style["avatar-img"]}/>
+                                    <img src={currentUser.avatarImageUrl} alt="" className={style["avatar-img"]}/>
                                 </div>
-
-                        }
-                        
-                          
+                        }  
                     </div>
                 </div>
                 <div className={style.row}>
@@ -111,7 +129,7 @@ useEffect(() => {
                         placeholder="Име на фирмата"
                         name="companyName"
                         id="companyName"
-                        value={companyName}
+                        defaultValue={currentUser.companyName}
                         onChange={(e) => {setCompanyName(e.target.value)}}
                     />
                 </div>
@@ -125,7 +143,7 @@ useEffect(() => {
                         name="category" 
                         id="category" 
                         placeholder="Избери категория"
-                        value={category} 
+                        defaultValue={currentUser.category}
                         onChange={(e) => {setCategory(e.target.value)}}
                     >
                         <option >Архитектура и проектиране на сгради</option>
@@ -144,7 +162,7 @@ useEffect(() => {
                         name="companyInformation" 
                         id="companyInformation" 
                         placeholder="Информация за фирмата"
-                        value={companyInformation}
+                        defaultValue={currentUser.companyInformation}
                         onChange={(e) => {setCompanyInformation(e.target.value)}}
                     >   
                     </textarea>
@@ -162,7 +180,7 @@ useEffect(() => {
                             type="text" 
                             placeholder="Име" 
                             name="firstName"
-                            value={firstName}
+                            defaultValue={currentUser.firstName}
                             onChange={(e) => {setFirstName(e.target.value)}}
                         />
                         <input 
@@ -170,7 +188,7 @@ useEffect(() => {
                             type="text" 
                             placeholder="Фамилия" 
                             name="lastName" 
-                            value={lastName}
+                            defaultValue={currentUser.lastName}
                             onChange={(e) => {setLastName(e.target.value)}}
                         />
                     </div>
@@ -185,7 +203,7 @@ useEffect(() => {
                             placeholder="Телефонен номер" 
                             name="phoneNumber" 
                             id="phoneNumber"
-                            value={phoneNumber}
+                            defaultValue={currentUser.phoneNumber}
                             onChange={(e) => {setPhoneNumber(e.target.value)}}
                         />
                     </div>
@@ -200,7 +218,7 @@ useEffect(() => {
                             placeholder="https://example.com"
                             name="url"
                             id="url"
-                            value={url}
+                            defaultValue={currentUser.url}
                             onChange={(e) => {setUrl(e.target.value)}}
                         />
                     </div>
@@ -214,7 +232,7 @@ useEffect(() => {
                             id="city" 
                             name="city" 
                             className={style.selectCity}
-                            value={city} 
+                            defaultValue={currentUser.city}
                             onChange={(e) => {setCity(e.target.value)}}
                         >
                             <option >Всички градове</option>
@@ -256,13 +274,17 @@ useEffect(() => {
                             placeholder="Адрес"
                             name="street"
                             id="street"
-                            value={street}
+                            defaultValue={currentUser.street}
                             onChange={(e) => {setStreet(e.target.value)}}
                         />
                     </div>
                     
                 </div>
-                <button onClick={createUser} className={style.button}>Редактирай</button>
+                {currentUser.id
+                    ?   <button onClick={onClickEditUser} className={style.button}>Редактирай</button>
+                    :   <button onClick={onClickCreateUser} className={style.button}>Създай профил</button>
+                }
+                
             </form>
         </div>
     );

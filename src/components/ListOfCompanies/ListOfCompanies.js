@@ -1,13 +1,14 @@
-import style from './ListOfCompanies.module.css'
+import style from './ListOfCompanies.module.css';
 
-import { useEffect, useState } from 'react';
+import { collection, query, where, getDocs} from "firebase/firestore";
+import { db } from '../../firebaseConfig';
+
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import { Company } from "./Company";
 
-import { collection, query, where, getDocs, doc } from "firebase/firestore";
-import { db } from '../../firebaseConfig'
-// import { async } from '@firebase/util';
+
 
 export const ListOfCompanies = () => {
     const { categories } = useParams();

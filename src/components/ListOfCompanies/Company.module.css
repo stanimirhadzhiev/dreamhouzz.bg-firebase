@@ -4,6 +4,7 @@
     border-bottom: antiquewhite 2px solid ;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
   }
   .tableRowIMG {
     width: 370px;

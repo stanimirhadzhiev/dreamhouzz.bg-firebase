@@ -1,7 +1,8 @@
-import { createContext, useState} from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
+
+import { createContext} from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 
 export const AuthContext = createContext();
