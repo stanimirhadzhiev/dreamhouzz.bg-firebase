@@ -1,4 +1,4 @@
-import { doc, setDoc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, updateDoc, deleteDoc, serverTimestamp } from "firebase/firestore";
 import { db } from '../firebaseConfig';
 
 
@@ -6,6 +6,10 @@ import { db } from '../firebaseConfig';
 export const createUser = async (userData, user) => {
     const userRef = doc(db, "users", `${user.uid}`);
     await setDoc(userRef, userData);
+    // Update the timestamp field with the value from the server
+    const  updateTimestamp = await updateDoc(userRef, {
+        timestamp: serverTimestamp()
+    });
 };
 
 
@@ -13,6 +17,10 @@ export const createUser = async (userData, user) => {
 export const editUser = async (userData, user) =>{
     const userRef = doc(db, "users", `${user.uid}`);
     await updateDoc(userRef, userData);
+    // Update the timestamp field with the value from the server
+    const  updateTimestamp = await updateDoc(userRef, {
+        timestamp: serverTimestamp()
+    });
 };
 
 export const getUser = async (setCurrentUser, user) =>{

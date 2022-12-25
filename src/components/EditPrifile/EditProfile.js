@@ -54,7 +54,7 @@ const userData = {
     email: user.email, 
     id: user.uid,
 };
-
+console.log(userData);
 const uploadAvatarImage = async (e) => {
     e.preventDefault();
     await uploadBytes(avatarImagesRef, avatarImageUpload).then((snapshot) => {
