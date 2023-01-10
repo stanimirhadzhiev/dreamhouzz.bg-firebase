@@ -19,20 +19,20 @@ export const ListOfCompanies = () => {
     let category = "";
 
     if( categories === 'architecture-companies'){
-         category = "Архитектура и проектиране на сгради";
-         var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Архитектура и проектиране на сгради"));
+         category = "Architects & Building Designers";
+         var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Architects & Building Designers"));
     }
     else if(categories === 'interior-design'){
-         category = "Интериорен дизайн";
-         var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Интериорен дизайн"));
+         category = "Interior Design";
+         var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Interior Design"));
     }
     else if(categories === 'landscape-architect'){
-        category = "Ландшафтна архитектура";
-        var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Ландшафтна архитектура"));
+        category = "Landscape Architects";
+        var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Landscape Architects"));
     }
     else if(categories === 'building-companies'){
-        category = "Строителство и ремонтни дейности";
-        var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Строителство и ремонтни дейности"));
+        category = "Construction and renovation";
+        var companyCollectionRef = query(collection(db, "users"), where("category", "==", "Construction and renovation"));
     }
 
     
@@ -52,42 +52,42 @@ export const ListOfCompanies = () => {
                 <h1>{category}</h1>
                 <div className={style.dropDown}>
                     <select id="city" name="city" className={style.selectCity}>
-                        <option>Всички градове</option>
-                        <option>София</option>
-                        <option>Пловдив</option>
-                        <option>Варна</option>
-                        <option>Бургас</option>
-                        <option>Русе</option>
-                        <option>Стара Загора</option> 
-                        <option>Плевен</option>
-                        <option>Добрич</option>
-                        <option>Сливен</option>
-                        <option>Шумен</option>
-                        <option>Перник</option>
-                        <option>Хасково</option>
-                        <option>Ямбол</option>
-                        <option>Пазарджик</option>
-                        <option>Благоевград</option>
-                        <option>Велико Търново</option>
-                        <option>Враца</option>
-                        <option>Габрово</option>
-                        <option>Асеновград</option>
-                        <option>Видин</option>
-                        <option>Кърджали</option>
-                        <option>Кюстендил</option>
-                        <option>Монтана</option>
-                        <option>Търговище</option>
-                        <option>Силистра</option>
-                        <option>Ловеч</option>
-                        <option>Разград</option>
-                        <option>Смолян</option>
+                        <option >All Cities</option>
+                        <option >Sofia</option>
+                        <option >Plovdiv</option>
+                        <option >Varna</option>
+                        <option >Bourgas</option>
+                        <option >Ruse</option>
+                        <option >Stara Zagora</option> 
+                        <option >Pleven</option>
+                        <option >Dobrich</option>
+                        <option >Sliven</option>
+                        <option >Shumen</option>
+                        <option >Pernik</option>
+                        <option >Haskovo</option>
+                        <option >Jambol</option>
+                        <option >Pazardzhik</option>
+                        <option >Blagoevgrad</option>
+                        <option >Veliko Tarnovo</option>
+                        <option >Vraca</option>
+                        <option >Gabrovo</option>
+                        <option >Asenovgrad</option>
+                        <option >Vidin</option>
+                        <option >Kardzhali</option>
+                        <option >Kiustendil</option>
+                        <option >Montana</option>
+                        <option >Targovishte</option>
+                        <option >Silistra</option>
+                        <option >Lovech</option>
+                        <option >Razgrad</option>
+                        <option >Smolian</option>
                     </select>
                 </div>
             </div>
             <div className={style.tableSection}>
                 {userList.length > 0
                     ? userList.map(user => <Company key={user.id} user={user} />)
-                    : <h3 className="no-articles">No articles yet</h3>
+                    : <h3 className="no-articles">No companies yet</h3>
                 }
             </div>
         </main>

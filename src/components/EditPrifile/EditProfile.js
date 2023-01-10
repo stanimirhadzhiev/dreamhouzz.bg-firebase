@@ -25,13 +25,13 @@ const EditProfile = () => {
 const {user} = useContext(AuthContext);
 let navigate = useNavigate();
 const [companyName, setCompanyName] = useState("");
-const [category, setCategory] = useState("Архитектура и проектиране на сгради");
+const [category, setCategory] = useState("Architects & Building Designers");
 const [companyInformation, setCompanyInformation] = useState("");
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
 const [phoneNumber, setPhoneNumber] = useState("");
 const [url, setUrl] = useState("");
-const [city, setCity] = useState("Всички градове");
+const [city, setCity] = useState("All Cities");
 const [street, setStreet] = useState("");
 const [ avatarImageUpload, setAvatarImageUpload ] = useState(null);
 const [avatarImageUrl, setAvatarImageUrl] = useState("");
@@ -94,7 +94,7 @@ useEffect(() => {
   
     return (
         <div className={style.container}>
-            <h1 className={style.title}>Информация за фирмата</h1>
+            <h1 className={style.title}>Company information</h1>
             <form className={style.formContainer}  >
                 <div className={style.row}>
                     <div className={style["col"]}>
@@ -110,7 +110,7 @@ useEffect(() => {
                                             hidden onChange={(e) => {setAvatarImageUpload(e.target.files[0])}}
                                         />
                                     </div>
-                                    {avatarImageUpload && <button onClick={uploadAvatarImage}>Качи Аватар</button>}
+                                    {avatarImageUpload && <button onClick={uploadAvatarImage}>Add Profile picture</button>}
                                 </>
                             :
                                 <div >
@@ -121,12 +121,12 @@ useEffect(() => {
                 </div>
                 <div className={style.row}>
                     <label htmlFor="companyName">
-                        <b>Име на фирмата</b>
+                        <b>Company name</b>
                     </label>
                     <input
                         className={style.inputStyle}
                         type="text"
-                        placeholder="Име на фирмата"
+                        placeholder="Company name"
                         name="companyName"
                         id="companyName"
                         defaultValue={currentUser.companyName}
@@ -136,32 +136,32 @@ useEffect(() => {
 
                 <div className={style.row}>
                     <label htmlFor="category">
-                        <b>Избери категория</b>
+                        <b>Chose category</b>
                     </label>
                     <select 
                         className={style.inputStyle} 
                         name="category" 
                         id="category" 
-                        placeholder="Избери категория"
+                        placeholder="Chose category"
                         defaultValue={currentUser.category}
                         onChange={(e) => {setCategory(e.target.value)}}
                     >
-                        <option >Архитектура и проектиране на сгради</option>
-                        <option >Интериорен дизайн</option>
-                        <option >Ландшафтна архитектура</option>
-                        <option >Строителство и ремонтни дейности</option>
+                        <option >Architects & Building Designers</option>
+                        <option >Interior Design</option>
+                        <option >Landscape Architects</option>
+                        <option >Construction and renovation</option>
                     </select>
                 </div>
 
                 <div className={style.row}>
                     <label htmlFor="companyInformation">
-                        <b>Информация за фирмата</b>
+                        <b>Company information</b>
                     </label>
                     <textarea 
                         className={style.inputStyle} 
                         name="companyInformation" 
                         id="companyInformation" 
-                        placeholder="Информация за фирмата"
+                        placeholder="Company information"
                         defaultValue={currentUser.companyInformation}
                         onChange={(e) => {setCompanyInformation(e.target.value)}}
                     >   
@@ -169,16 +169,16 @@ useEffect(() => {
                 </div>
 
                 <div>
-                    <h2>Данни за контакт:</h2>
+                    <h2>Contacts:</h2>
                  
                     <div className={style.row}>
                         <label htmlFor="firstName">
-                            <b>Лице за контакт</b>
+                            <b>Person for contact</b>
                         </label>
                         <input 
                             className={style.inputStyle}
                             type="text" 
-                            placeholder="Име" 
+                            placeholder="First name" 
                             name="firstName"
                             defaultValue={currentUser.firstName}
                             onChange={(e) => {setFirstName(e.target.value)}}
@@ -186,7 +186,7 @@ useEffect(() => {
                         <input 
                             className={style.inputStyle}
                             type="text" 
-                            placeholder="Фамилия" 
+                            placeholder="Last name" 
                             name="lastName" 
                             defaultValue={currentUser.lastName}
                             onChange={(e) => {setLastName(e.target.value)}}
@@ -195,12 +195,12 @@ useEffect(() => {
 
                     <div className={style.row}>
                         <label htmlFor="phoneNumber">
-                            <b>Телефонен номер</b>
+                            <b>Phone number</b>
                         </label>
                         <input 
                             className={style.inputStyle}
                             type="number" 
-                            placeholder="Телефонен номер" 
+                            placeholder="Phone number" 
                             name="phoneNumber" 
                             id="phoneNumber"
                             defaultValue={currentUser.phoneNumber}
@@ -226,7 +226,7 @@ useEffect(() => {
                     <div className={style.row}>
                         
                         <label htmlFor="city">
-                            <b>Избери град</b>
+                            <b>Chose City</b>
                         </label>
                         <select 
                             id="city" 
@@ -235,43 +235,43 @@ useEffect(() => {
                             defaultValue={currentUser.city}
                             onChange={(e) => {setCity(e.target.value)}}
                         >
-                            <option >Всички градове</option>
-                            <option >София</option>
-                            <option >Пловдив</option>
-                            <option >Варна</option>
-                            <option >Бургас</option>
-                            <option >Русе</option>
-                            <option >Стара Загора</option> 
-                            <option >Плевен</option>
-                            <option >Добрич</option>
-                            <option >Сливен</option>
-                            <option >Шумен</option>
-                            <option >Перник</option>
-                            <option >Хасково</option>
-                            <option >Ямбол</option>
-                            <option >Пазарджик</option>
-                            <option >Благоевград</option>
-                            <option >Велико Търново</option>
-                            <option >Враца</option>
-                            <option >Габрово</option>
-                            <option >Асеновград</option>
-                            <option >Видин</option>
-                            <option >Кърджали</option>
-                            <option >Кюстендил</option>
-                            <option >Монтана</option>
-                            <option >Търговище</option>
-                            <option >Силистра</option>
-                            <option >Ловеч</option>
-                            <option >Разград</option>
-                            <option >Смолян</option>
+                            <option >All Cities</option>
+                            <option >Sofia</option>
+                            <option >Plovdiv</option>
+                            <option >Varna</option>
+                            <option >Bourgas</option>
+                            <option >Ruse</option>
+                            <option >Stara Zagora</option> 
+                            <option >Pleven</option>
+                            <option >Dobrich</option>
+                            <option >Sliven</option>
+                            <option >Shumen</option>
+                            <option >Pernik</option>
+                            <option >Haskovo</option>
+                            <option >Jambol</option>
+                            <option >Pazardzhik</option>
+                            <option >Blagoevgrad</option>
+                            <option >Veliko Tarnovo</option>
+                            <option >Vraca</option>
+                            <option >Gabrovo</option>
+                            <option >Asenovgrad</option>
+                            <option >Vidin</option>
+                            <option >Kardzhali</option>
+                            <option >Kiustendil</option>
+                            <option >Montana</option>
+                            <option >Targovishte</option>
+                            <option >Silistra</option>
+                            <option >Lovech</option>
+                            <option >Razgrad</option>
+                            <option >Smolian</option>
                         </select>
                         <label htmlFor="street">
-                            <b>Адрес</b>
+                            <b>Address</b>
                         </label>
                         <input
                             className={style.inputStyle}
                             type="text"
-                            placeholder="Адрес"
+                            placeholder="Address"
                             name="street"
                             id="street"
                             defaultValue={currentUser.street}
@@ -281,8 +281,8 @@ useEffect(() => {
                     
                 </div>
                 {currentUser.id
-                    ?   <button onClick={onClickEditUser} className={style.button}>Редактирай</button>
-                    :   <button onClick={onClickCreateUser} className={style.button}>Създай профил</button>
+                    ?   <button onClick={onClickEditUser} className={style.button}>Edit</button>
+                    :   <button onClick={onClickCreateUser} className={style.button}>Create Profile</button>
                 }
                 
             </form>

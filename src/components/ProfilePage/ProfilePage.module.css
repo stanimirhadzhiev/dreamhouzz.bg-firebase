@@ -3,13 +3,12 @@
     margin: auto;
     margin-top: 170px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
   }
   .contactContainer {
     width: 360px;
-    height: 520px;
-    position: fixed;
-    right: 170px;
-    
+    height: 520px;  
   }
   .messageContainer {
     width: 323px;

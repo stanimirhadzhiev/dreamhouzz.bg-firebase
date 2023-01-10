@@ -24,26 +24,26 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className={style.copyright}>
-                        ©2022 dreamhouzz.bg - Всички права запазени.
+                        ©2022 dreamhouzz.bg 
                     </div>
                 </div>
                 <div className={style.footerContainerSecondColumn}>
-                    <h4>Категории:</h4>
+                    <h4>Category:</h4>
                     <Link to="/architecture-companies">
-                        <div>Архитектура &amp; проектиране на сгради</div>
+                        <div>Architects & Building Designers</div>
                     </Link>
                     <Link to="/interior-design">
-                        <div>Интериорен дизайн</div>
+                        <div>Interior Design</div>
                     </Link>
                     <Link to="/landscape-architect">
-                        <div>Ландшафтна архитектура</div>
+                        <div>Landscape Architects</div>
                     </Link>
                     <Link to="/building-companies">
-                        <div>Строителство и ремонтни дейности</div>
+                        <div>Construction and renovation</div>
                     </Link>
                 </div>
                 <div className={style.footerContainerThirdColumn}>
-                    <h4>За платформата:</h4>
+                    <h4>About us:</h4>
                 </div>
             </div>
         </footer>

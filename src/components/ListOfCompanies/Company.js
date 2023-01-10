@@ -32,7 +32,7 @@ export const Company = ({user}) => {
                                 <span className={`${style.star} ${style.star2}`} />
                                 <span className={`${style.star} ${style.star2}`} />
                                 <span className={`${style.star} ${style.star2}`} />
-                                <span className={style.numReviews}>30 Ревюта</span>
+                                <span className={style.numReviews}>30 Reviews</span>
                             </div>
                         </div>
                         <div></div>

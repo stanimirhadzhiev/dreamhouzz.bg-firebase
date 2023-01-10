@@ -48,7 +48,7 @@ const Register = () => {
                 onSubmit={onSubmit}
             >
                 <div className={style.container} style={{ backgroundColor: "#f1f1f1", borderRadius: "10px 10px 0px 0px" }}>
-                    <h1>Регистрация за фирми</h1>
+                    <h1>Registration for Professionals</h1>
                 </div>
                 <div className={style.container}>
                     <label htmlFor="email">
@@ -64,11 +64,11 @@ const Register = () => {
                     />
 
                     <label htmlFor="password">
-                        <b>Парола</b>
+                        <b>Password</b>
                     </label>
                     <input 
                         type="password" 
-                        placeholder="Парола" 
+                        placeholder="Password" 
                         name="password" 
                         id="password"
                         value={password}
@@ -76,11 +76,11 @@ const Register = () => {
                     />
 
                     <label htmlFor="confirmPassword">
-                        <b>Повторете Паролата</b>
+                        <b>Repeat Password</b>
                     </label>
                     <input
                         type="password"
-                        placeholder="Повторете Паролата"
+                        placeholder="Repeat Password"
                         name="confirmPassword"
                         id="confirmPassword"
                         value={confirmPassword}
@@ -95,11 +95,10 @@ const Register = () => {
                             onChange={(e) => {setTac(e.target.value)}} 
                         />
                         <span>
-                        Декларирам, че съм запознат и приемам Правилата за поверителност,
-                        Общите условия и Защитата на личните данни на DreamHouZz.bg
+                            By signing in or creating an account, you agree with our Terms & conditions and Privacy statement.
                         </span>
                     </label>
-                    <button className={style.button} type="submit">Регистрация</button>
+                    <button className={style.button} type="submit" disabled={!tac}>Registration</button>
                 </div>
                 <div className={style.container} style={{ backgroundColor: "#f1f1f1" }}>
                     <button

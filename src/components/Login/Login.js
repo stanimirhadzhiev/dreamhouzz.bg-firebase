@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { AuthContext } from '../../context/AuthContext';
 import { auth } from '../../firebaseConfig'
 
-import {useNavigate, Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import { useState, useContext } from "react";
 
 
@@ -50,7 +50,7 @@ const Login = () => {
                         ×
                     </span>
                     <img
-                        src="images/icons/110-1100707_person-avatar-placeholder.png"
+                        src="images/icons/avatar.png"
                         alt="Avatar"
                         className={style.avatar}
                     />
@@ -68,17 +68,17 @@ const Login = () => {
                     />
 
                     <label htmlFor="password">
-                        <b>Парола</b>
+                        <b>Password</b>
                     </label>
                     <input 
                         type="password" 
-                        placeholder="Парола" 
+                        placeholder="Password" 
                         name="password"
                         value={password}
                         onChange={(e) => {setPassword(e.target.value)}}  
                     />
 
-                    <button className={style.button} type="submit">Влез</button>
+                    <button className={style.button} type="submit">Login</button>
 
                 </div>
                 <div className={style.container} style={{ backgroundColor: "#f1f1f1" }}>

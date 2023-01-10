@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+
 
 
 import { AuthProvider } from './context/AuthContext';
 import { CompanyProvider } from './context/CompanyContext'
-import { useLocalStorage } from './hooks/useLocalStorage';
+
 
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="box">
+      
         <AuthProvider>
           <CompanyProvider>
             <Header/>
@@ -46,7 +46,7 @@ function App() {
             <Footer/>
           </CompanyProvider> 
         </AuthProvider>
-      </div>
+      
     </div>
   );
 }

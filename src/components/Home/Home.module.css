@@ -133,3 +133,7 @@
     flex-wrap: wrap;
     justify-content: space-between; 
   }
+
+  .allProjects{
+    margin: 20px 0px;
+  }

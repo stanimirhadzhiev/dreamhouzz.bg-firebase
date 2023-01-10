@@ -7,7 +7,7 @@ const Home = () => {
             <div className={style.aboutUsAndRegistration}>
                 <div className={style.aboutusContainer}>
                     <div className={style.aboutusInfo}>
-                        <h1> Превърни своя мечтан дом в реалност.</h1>
+                        <h1> The Best Place to Find Professionals.</h1>
                         <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
                         repellendus at voluptatibus dolores distinctio officiis
@@ -22,18 +22,16 @@ const Home = () => {
                         <img src="images/icons/icons8-company-16.png" alt="" />
                         DreamHouZz Pro
                     </h3>
-                    <h2>Едно просто решение за вашият бизнес</h2>
+                    <h2>Join Millions of Home Professionals</h2>
                     <p>
-                        Привличайте и печелете по-добри клиенти, управлявайте печеливши
-                        проекти и предоставяйте отлично клиентско изживяване - всичко на
-                        едно място.
+                        Get the all-in-one tool for marketing, CRM and project management
                     </p>
                 </div>
             </div>
-            <section className={style.caroselSection}>
+            {/* <section className={style.caroselSection}>
                 <div className={style.mostPopularCaroselContainer}>
                     <h2>
-                        Последно добавени проекти
+                        Last projects
                     </h2>
                     <div className={style.CaroselContainer}>
                         <div className={style.CaroselCard}>
@@ -90,7 +88,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             <section className={style.allProjects}>
                 <div className={style.galery}>
                     <div className={style.CaroselCard}>

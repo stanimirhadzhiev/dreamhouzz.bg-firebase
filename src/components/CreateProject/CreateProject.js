@@ -60,17 +60,17 @@ export const CreateProject = () => {
    
     return(
         <div className={style.container}>
-            <h1 className={style.title}>Информация за проекта</h1>
+            <h1 className={style.title}>Project information</h1>
             <form className={style.formContainer}  >
                 
                 <div className={style.row}>
                     <label htmlFor="projectName">
-                        <b>Име на проекта</b>
+                        <b>Project name</b>
                     </label>
                     <input
                         className={style.inputStyle}
                         type="text"
-                        placeholder="Име на проекта"
+                        placeholder="Project name"
                         name="projectName"
                         id="projectName"
                         value={projectName}
@@ -80,13 +80,13 @@ export const CreateProject = () => {
 
                 <div className={style.row}>
                     <label htmlFor="projectInformation">
-                        <b>Описание на проекта</b>
+                        <b>Project information</b>
                     </label>
                     <textarea 
                         className={style.inputStyle} 
                         name="projectInformation" 
                         id="projectInformation" 
-                        placeholder="Информация за проекта"
+                        placeholder="Project information"
                         value={projectInformation}
                         onChange={(e) => {setProjectInformation(e.target.value)}}
                     >   
@@ -101,13 +101,13 @@ export const CreateProject = () => {
                             })}
                         </div>
                         <div className={style["card-img"]}>
-                            <label htmlFor="uploadImg" className={style["img-upload"]}>Добави снимка</label>
+                            <label htmlFor="uploadImg" className={style["img-upload"]}>Add picture</label>
                             <input  type="file" id="uploadImg" name="uploadImg" hidden onChange={(e) => {setImageUpload(e.target.files[0])}}/>
                         </div>
                     </div>
                 </div>
 
-                <button onClick={createProject} className={style.button}> Добави проект</button>
+                <button onClick={createProject} className={style.button}> Create Project</button>
             </form>
         </div>
     );
