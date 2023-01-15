@@ -1,0 +1,17 @@
+.allProjects{
+    width: 1200px;
+    padding: 100px;
+}
+.galleryTitle{
+
+}
+
+.galery {
+    
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.allProjects {
+    margin: 20px;
+}

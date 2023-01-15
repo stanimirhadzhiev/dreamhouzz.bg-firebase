@@ -39,7 +39,8 @@ export const CreateProject = () => {
             projectInformation,
             imageUrls,
             email: user.email,
-            id: user.uid
+            id: user.uid,
+            company: user.companyName,
         });
         navigate("/");
     };

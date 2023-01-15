@@ -15,6 +15,7 @@ export const AuthProvider = ({children}) => {
         setUser(currentUser);
     });
     
+    
     const userLogout = () =>{
         setUser({});
     };  

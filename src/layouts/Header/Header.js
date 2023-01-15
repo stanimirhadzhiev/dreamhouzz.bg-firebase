@@ -2,6 +2,8 @@ import style from './Header.module.css';
 
 import { AuthContext } from '../../context/AuthContext';
 import { CompanyContext } from '../../context/CompanyContext';
+import { ProjectContext } from '../../context/ProjectContext';
+import * as userService from '../../services/userService';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -11,13 +13,20 @@ import v4 from 'react-uuid';
 
 const Header = () => {
     const {user} = useContext(AuthContext);
-    const { setProjectId } = useContext(CompanyContext);
+    const { setSelectedUser } = useContext(CompanyContext);
+    const { setProjectId } = useContext(ProjectContext);
     const navigate = useNavigate();
-
+    
     const createProjectId = (e) =>{
         e.preventDefault();
         setProjectId(() => v4());
         navigate('/create-project');
+    };
+
+    const clickHandler = (e) =>{
+        e.preventDefault();
+        userService.getUser( setSelectedUser, user );
+        navigate(`/${user.uid}/profile-page`);
     };
     
     
@@ -26,7 +35,7 @@ const Header = () => {
             <div className={style.headerFirstContainer}>
                 <div className={style.logo}>
                     <Link to="/">
-                        <img src="images/logo.png" alt="" />
+                        <img src={require("../../assets/images/logo.png")} alt="No image" />
                     </Link>
                 </div>
                 <div className={style.searchSection}>
@@ -52,10 +61,10 @@ const Header = () => {
                                         </div>
                                         <div className={style["dropdown-content"]}>
                                             <h3 className={style["dropdown-header"]}>{user.email}</h3>
-                                            <Link to="/profile-page">Profile</Link>
-                                            <Link to="/edit-profile">Edit profile</Link>
+                                            <Link onClick= {clickHandler}>Profile</Link>
+                                            <Link to={`/${user.uid}/edit-profile`}>Edit profile</Link>
                                             <Link  onClick={createProjectId}>Create project</Link>
-                                            <Link to="#">Add certificates</Link>
+                                            <Link to="#">Add credentials</Link>
                                             <Link to="#">Change password</Link>
                                             <Link to="#">Change e-mail</Link>
                                         </div>
@@ -65,7 +74,6 @@ const Header = () => {
                                 <button className={style.button}>
                                     <Link to="/logout">
                                         <span className="material-symbols-outlined">Logout</span>
-                                        {/* <span className={style.signInBTNtext}>Изход</span> */}
                                     </Link>
                                 </button>
                             </div>
@@ -73,14 +81,12 @@ const Header = () => {
                            <div className={style.guest}>
                                 <div className={style.button}>
                                     <Link to="/login"  >
-                                        {/* <span className={style.userIcon} /> */}
                                         <span className={style.signInBTNtext}>Login</span>
                                     </Link>
                                 </div>
                                 
                                 <div className={style.button}>
                                     <Link to ="/register"  >
-                                        {/* <span className={style.registrationIcon} /> */}
                                         <span className={style.registrationBTNtext}>Register</span>
                                     </Link>
                                 </div>

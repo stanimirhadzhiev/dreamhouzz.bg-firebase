@@ -7,10 +7,10 @@ export const CompanyContext = createContext();
 
 export const CompanyProvider = ({children}) => {
     const [ selectedUser, setSelectedUser ] = useLocalStorage('selectedUser', {});
-    const [ projectId, setProjectId ] = useState({});
+    
 
     return(
-        <CompanyContext.Provider value={{selectedUser, setSelectedUser, projectId, setProjectId}}>
+        <CompanyContext.Provider value={{selectedUser, setSelectedUser }}>
             {children}
         </CompanyContext.Provider>
     );

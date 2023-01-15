@@ -1,58 +1,68 @@
 .mainSection {
     width: 100%;
     margin-top: 170px;
-  }
-  .aboutUsAndRegistration {
+}
+
+.aboutUsAndRegistration {
     width: 1500px;
     height: 800px;
     margin: auto;
     display: flex;
-  }
-  .aboutusContainer {
+}
+
+.aboutusContainer {
     width: 65%;
     height: 100%;
-    background-image: url(../../../public/images/huy-phan-HqLcI0Dyl4o-unsplash.jpg);
+    background-image: url(../../assets/images/huy-phan-HqLcI0Dyl4o-unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  .aboutusInfo {
+}
+
+.aboutusInfo {
     width: 400px;
     height: 600px;
     margin: auto;
     margin-top: 300px;
-  }
-  .registrationContainer {
+}
+
+.registrationContainer {
     width: 35%;
     height: 100%;
     background-color: #113350;
     color: #fff;
-  }
-  .registrationContainer h2 {
+}
+
+.registrationContainer h2 {
     font-size: 36px;
     font-weight: bold;
     margin: 0px 50px;
-  }
-  .registrationContainer a {
+}
+
+.registrationContainer a {
     color: #fff;
     margin: 0px 50px;
-  }
-  .registrationContainer p {
+}
+
+.registrationContainer p {
     margin: 20px 50px;
-  }
-  .registrationProgramName {
+}
+
+.registrationProgramName {
     height: 30px;
     width: 255px;
     margin: 150px 50px 20px 50px;
     font-size: 25px;
     font-weight: bold;
-  }
-  .registrationProgramName img {
+}
+
+.registrationProgramName img {
     float: left;
     width: 30px;
     height: 30px;
     margin-right: 10px;
-  }
-  .regEmail {
+}
+
+.regEmail {
     margin-top: 30px;
     margin-left: 50px;
     width: 330px;
@@ -60,8 +70,9 @@
     padding: 5px;
     border-radius: 5px;
     border: none;
-  }
-  .regBTN {
+}
+
+.regBTN {
     margin-top: 15px;
     margin-left: 50px;
     width: 340px;
@@ -72,68 +83,36 @@
     background-color: #0066c3;
     color: #fff;
     cursor: pointer;
-  }
-  .privacyPolicy {
+}
+
+.privacyPolicy {
     width: 340px;
     margin-left: 50px;
     font-size: 12px;
-  }
-  .caroselSection {
+}
+
+.caroselSection {
     width: 1200px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
-  }
-  .mostPopularCaroselContainer {
+}
+
+.mostPopularCaroselContainer {
     display: inline-block;
     margin: 50px 0px;
-  }
-  .mostPopularCaroselContainer h2 {
+}
+
+.mostPopularCaroselContainer h2 {
     margin-bottom: 20px;
-  }
-  .CaroselContainer {
+}
+
+.CaroselContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 14px;
-  }
-  .CaroselCard {
-    display: inline-block;
-    width: 280px;
-    height: 250px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    text-align: center;
-    cursor: pointer;
-  }
-  .CaroselCard:hover {
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .CaroselCardImg {
-    width: 280px;
-    height: 150px;
-    display: inline-block;
-  }
-  .CompanyName {
-    color: #319d3f;
-    margin: 5px 10px;
-    text-align: left;
-    width: 100%;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .CaroselcardTxt {
-    margin-left: 10px;
-    text-align: left;
-  }
+}
+  
 
-  .galery{
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; 
-  }
-
-  .allProjects{
-    margin: 20px 0px;
-  }
+  

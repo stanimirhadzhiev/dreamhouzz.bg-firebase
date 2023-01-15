@@ -50,7 +50,7 @@ const Login = () => {
                         ×
                     </span>
                     <img
-                        src="images/icons/avatar.png"
+                        src={require("../../assets/images/icons/avatar.png")}
                         alt="Avatar"
                         className={style.avatar}
                     />

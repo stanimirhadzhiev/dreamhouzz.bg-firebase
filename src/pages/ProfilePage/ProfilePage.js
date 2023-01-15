@@ -1,36 +1,29 @@
 import style from './ProfilePage.module.css';
 
-import { collection, query, where, getDocs} from "firebase/firestore";
-import { db } from '../../firebaseConfig';
 
 import { CompanyContext } from '../../context/CompanyContext';
-import { useContext, useState, useEffect } from 'react';
+import { ProjectContext } from '../../context/ProjectContext';
+import * as projectService from '../../services/projectService';
+import { useContext, useEffect } from 'react';
+
+import { ProjectCard } from '../../components/ProjectCard/ProjectCard';
 
 const ProfilePage = () => {
 const { selectedUser } = useContext(CompanyContext);
-const [projectList, setProjectList] = useState([]);
+const {projectList, setProjectList} = useContext(ProjectContext);
 
-var projectCollectionRef = query(collection(db, "projects"), where("id", "==", `${selectedUser.id}`));
-console.log(selectedUser.id);
+
+
 
 useEffect(() => {
-    const getProjectList = async () => {
-        const data = await getDocs(projectCollectionRef);
-        setProjectList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-
-    getProjectList();
+    projectService.getAllAuthorProjects(setProjectList, selectedUser);
   }, []);
 
-console.log(projectList);
+
 return(
         
             <main className={style.mainProfilPageSection}>
                 <div className={style.ProfilPageContainer}>
-                    {/* <div className={style.caroselCompanyPictures}>
-                        <img src="images/05-scaled.webp" alt=""/>
-                    </div> */}
-
                     <div className={style.companyInformation}>
                         <div className={style.basicInformation}>
                             <img className={style.peopleIMG} src={selectedUser.avatarImageUrl} alt=""/>
@@ -38,15 +31,6 @@ return(
                                 <div className={style.companyName}>
                                     {selectedUser.companyName}
                                 </div>
-                                {/* <div className={style.ratingSection}>
-                                    <span>4.0</span>
-                                    <span className={style.star}></span>
-                                    <span className={style.star}></span>
-                                    <span className={style.star}></span>
-                                    <span className={style.star}></span>
-                                    <span className={style.star}></span>
-                                    <span className={style.numReviews}>30 Ревюта</span>
-                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -68,13 +52,8 @@ return(
                         <h2>{projectList.length} Projects</h2>
                         <div className={style.projectsContainer}>
                             {projectList.length > 0
-                                ?   projectList.map(project => 
-                                        <div className={style.projectCard} key={project.id}>
-                                            <img src={project.imageUrls[0]} alt="" width="385px" height="257px"/>
-                                            <h3>{project.projectName}</h3>
-                                        </div>
-                                    )    
-                                :   <h3 className="no-articles">No articles yet</h3>
+                                ? projectList.map(project => <ProjectCard key={project.id} project={project} />)
+                                : <h3>No projects yet</h3>
                             }
                         </div>
                     </div>
@@ -82,13 +61,13 @@ return(
                         <h2>Credentials</h2>
                         <div className={style.credentialContainer}>
                             <div className={style.credentialCard}>
-                                <img src="images/S45C-515020408290-page-001.jpg" alt="" width="385px" height="257px"/>
+                                <img src={require("../../assets/images/S45C-515020408290-page-001.jpg")} alt="" width="385px" height="257px"/>
                             </div>
                             <div className={style.credentialCard}>
-                                <img src="images/DOC003-page-001.jpg" alt="" width="385px" height="257px"/>
+                                <img src={require("../../assets/images/DOC003-page-001.jpg")} alt="" width="385px" height="257px"/>
                             </div>
                             <div className={style.credentialCard}>
-                                <img src="images/Udostoverenie-page-001.jpg" alt="" width="385px" height="257px"/>
+                                <img src={require("../../assets/images/Udostoverenie-page-001.jpg")} alt="" width="385px" height="257px"/>
                             </div>
                         </div>
                     </div>
@@ -102,24 +81,17 @@ return(
                     </div>
                     <div className={style.contactInformationContainer}>
                         <div className={style.contactInformationRow}>
-                            <img className={style.contactIcons} src='images/icons/icons8-phone-24.png'/>
+                            <img className={style.contactIcons} src={require('../../assets/images/icons/icons8-phone-24.png')}/>
                             <div className={style.contactInformation}>{selectedUser.phoneNumber}</div>
                         </div>
                         <div className={style.contactInformationRow}>
-                            <img className={style.contactIcons} src='images/icons/icons8-website-24.png'/>
-                            <div className={style.contactInformation}>{selectedUser.url}</div>
+                            <img className={style.contactIcons} src={require('../../assets/images/icons/icons8-website-24.png')}/>
+                            <div className={style.contactInformation} >{selectedUser.url}</div>
                         </div>
                         <div className={style.contactInformationRow}>
-                            <img className={style.contactIcons} src='images/icons/icons8-map-marker-24.png'/>
+                            <img className={style.contactIcons} src={require('../../assets/images/icons/icons8-map-marker-24.png')}/>
                             <div className={style.contactInformation}> {selectedUser.city} , {selectedUser.street}</div>
                         </div>
-                        {/* <div className={style.contactInformationRow}>
-                            <img className={style.contactIcons} src='images/icons/icons8-people-24.png'/>
-                            <div>18 Последователи</div>
-                        </div>
-                        <div className={style.contactInformationRow}>
-                            <Link to="#">+ Последвай ни</Link>
-                        </div> */}
                     </div>
                 </div>
             </main>

@@ -1,0 +1,33 @@
+.card {
+    display: inline-block;
+    width: 280px;
+    height: 250px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cardImg {
+    width: 280px;
+    height: 150px;
+    display: inline-block;
+}
+
+.companyName {
+    color: #319d3f;
+    margin: 5px 10px;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cardTxt {
+    margin-left: 10px;
+    text-align: left;
+}

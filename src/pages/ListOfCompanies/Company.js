@@ -12,13 +12,13 @@ export const Company = ({user}) => {
     const clickHandler = (e) =>{
         e.preventDefault();
         setSelectedUser(user);
-        navigate('/profile-page')
+        navigate(`/${user.id}/profile-page`)
     };
-
+    
     return(
             <div className={style.tableRow} onClick= {clickHandler}>
                 <div className={style.tableRowIMG}>
-                    <img src="images/pexels-photo-1571460.jpeg" alt="" />
+                    <img src={require("../../assets/images/pexels-photo-1571460.jpeg")} alt="" />
                 </div>
                 <div className={style.companyInformation}>
                     <div className={style.basicInformation}>

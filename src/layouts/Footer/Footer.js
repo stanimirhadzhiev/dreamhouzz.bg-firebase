@@ -8,19 +8,19 @@ const Footer = () => {
             <div className={style.footerContainer}>
                 <div className={style.footerContainerFirstColumn}>
                     <div className={style.logo}>
-                        <Link to="/">
-                            <img src="images/logo2.png" alt="" />
+                        <Link to="/" className={style.logoImg}>
+                            <img  src={require("../../assets/images/logo2.png")} alt="" />
                         </Link>
                     </div>
                     <div className={style.socialMediaContainer}>
                         <Link to="#">
-                            <img src="images/icons/icons8-facebook-48.png" alt="" />
+                            <img src={require("../../assets/images/icons/icons8-facebook-48.png")} alt="" />
                         </Link>
                         <Link to="#">
-                            <img src="images/icons/icons8-instagram-48.png" alt="" />
+                            <img src={require("../../assets/images/icons/icons8-instagram-48.png")} alt="" />
                         </Link>
                         <Link to="#">
-                            <img src="images/icons/icons8-linkedin-48.png" alt="" />
+                            <img src={require("../../assets/images/icons/icons8-linkedin-48.png")} alt="" />
                         </Link>
                     </div>
                     <div className={style.copyright}>

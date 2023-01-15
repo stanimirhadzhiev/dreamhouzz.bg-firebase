@@ -45,7 +45,7 @@ export const ListOfCompanies = () => {
     
         getUserList();
       }, [category]);
-
+      
     return (
         <main className={style.tableMainSection}>
             <div className={style.filterSection}>

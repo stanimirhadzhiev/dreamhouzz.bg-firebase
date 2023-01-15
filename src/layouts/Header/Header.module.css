@@ -5,60 +5,66 @@
     height: 150px;
     top: 0%;
     background-color: #fff;
-  }
-  .headerFirstContainer {
+}
+
+.headerFirstContainer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin: auto;
     width: 90%;
     height: 80px;
-  }
-  a {
+}
+
+a {
     text-decoration: none;
     color: black;
-  }
-  .logo {
+}
+
+.logo {
     width: 200px;
     height: 80px;
-  }
-  .searchSection {
+}
+
+.searchSection {
     display: flex;
     width: 40%;
     height: 35px;
     border: 2px #D3D3D3 solid;
-  }
-  .srcBTN {
+}
+
+.srcBTN {
     width: 40px;
     height: 80%;
     margin: 3.5px;
-    background-image: url(../../../public/images/icons/search-free-icon-font.svg);
+    background-image: url(../../assets/images/icons/search-free-icon-font.svg);
     background-repeat: no-repeat;
     background-size: contain;
-  }
-  .searchBox {
+}
+
+.searchBox {
     width: 100%;
     height: 100%;
     border: none;
     font-size: 20px;
     color: #949494;
-  }
- 
-  .guest {
+}
+
+.guest {
     width: 200px;
     height: 35px;
     display: flex;
-    
-  }
-  
-  .user {
+
+}
+
+.user {
     height: 35px;
     display: flex;
     justify-content: space-between;
-  }
+}
 
 
-  .button {
+.button {
     height: 35px;
     margin: auto;
     text-align: center;
@@ -67,23 +73,23 @@
     cursor: pointer;
     background-color: white;
     border: none;
-  }
+}
 
-  .button:hover {
+.button:hover {
     border-bottom: #0066c3 3px solid
-  }
-  
-  .registrationBTNtext {
-    color: #0066c3;
-  }
+}
 
-  .headerNavigation {
+.registrationBTNtext {
+    color: #0066c3;
+}
+
+.headerNavigation {
     width: 1500px;
     height: 50px;
-  }
+}
 
 
-  .navContainer {
+.navContainer {
     width: 70%;
     height: 100%;
     margin: 20px auto;
@@ -91,60 +97,70 @@
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
-  }
-  .navTxtBTN {
+}
+
+.navTxtBTN {
     display: inline-block;
-  }
-  .navBTN {
+}
+
+.navBTN {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  .navBTN:hover {
+}
+
+.navBTN:hover {
     border-bottom: #0066c3 3px solid;
-  }
+}
 
 
-  /* The container <div> - needed to position the dropdown content */
+/* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  background-color: white;
-  border: #D3D3D3 1px solid;
-  border-radius: 5px;
-  width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  font-size: 16px;
-  z-index: 1;
+    display: none;
+    background-color: white;
+    border: #D3D3D3 1px solid;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
 
-.dropdown-header{
-  color: #fff;
-  padding-top: 0px;
-  padding-bottom: 5px;
-  background-color: #0066c3;
-  
-};
+.dropdown-header {
+    color: #fff;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    background-color: #0066c3;
+
+}
+

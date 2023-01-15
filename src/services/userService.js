@@ -23,12 +23,12 @@ export const editUser = async (userData, user) =>{
     });
 };
 
-export const getUser = async (setCurrentUser, user) =>{
+export const getUser = async (setSelectedUser, user) =>{
     const userRef = doc(db, "users", `${user.uid}`); 
     const userData = await getDoc(userRef);
 
     if (userData.exists()) {
-        setCurrentUser(userData.data())
+        setSelectedUser(userData.data())
     // console.log("Document data:", docSnap.data());
     } else {
     // doc.data() will be undefined in this case

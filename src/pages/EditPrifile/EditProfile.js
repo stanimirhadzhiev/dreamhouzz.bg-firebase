@@ -54,7 +54,7 @@ const userData = {
     email: user.email, 
     id: user.uid,
 };
-console.log(userData);
+
 const uploadAvatarImage = async (e) => {
     e.preventDefault();
     await uploadBytes(avatarImagesRef, avatarImageUpload).then((snapshot) => {
@@ -68,7 +68,7 @@ const uploadAvatarImage = async (e) => {
 
 const onClickCreateUser = async (e) => {
     e.preventDefault();
-    userService.createUser(userData, user)
+    userService.createUser(userData, user);
 
     navigate("/");
 };
@@ -77,7 +77,7 @@ const onClickCreateUser = async (e) => {
 
 const onClickEditUser = async (e) =>{
     e.preventDefault();
-    userService.editUser(userData, user)
+    userService.editUser(userData, user);
     
     navigate("/");
 };
