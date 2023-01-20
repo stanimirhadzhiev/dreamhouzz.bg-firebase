@@ -1,11 +1,13 @@
 import style from './Register.module.css';
 
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebaseConfig';
-import { AuthContext } from '../../context/AuthContext';
-
 import { useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
+
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+
+import { AuthContext } from '../../context/AuthContext';
+
 
 
 
@@ -27,7 +29,7 @@ const Register = () => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
-            return(alert('Wrong email or password'));
+            return(alert('Invalid email or password'));
         }
 
         try {
@@ -42,15 +44,15 @@ const Register = () => {
     }
 
     return (
-        <div id="id02" className={style.modal}>
+        <div id="id02" className={style["modal"]}>
             <form
-                className={`${style.modalContent} ${style.animate}`}
+                className={`${style["modal-content"]} ${style["animate"]}`}
                 onSubmit={onSubmit}
             >
-                <div className={style.container} style={{ backgroundColor: "#f1f1f1", borderRadius: "10px 10px 0px 0px" }}>
+                <div className={style["container"]} style={{ backgroundColor: "#f1f1f1", borderRadius: "10px 10px 0px 0px" }}>
                     <h1>Registration for Professionals</h1>
                 </div>
-                <div className={style.container}>
+                <div className={style["container"]}>
                     <label htmlFor="email">
                         <b>E-mail</b>
                     </label>
@@ -98,13 +100,13 @@ const Register = () => {
                             By signing in or creating an account, you agree with our Terms & conditions and Privacy statement.
                         </span>
                     </label>
-                    <button className={style.button} type="submit" disabled={!tac}>Registration</button>
+                    <button className={style["button"]} type="submit" disabled={!tac}>Registration</button>
                 </div>
-                <div className={style.container} style={{ backgroundColor: "#f1f1f1" }}>
+                <div className={style["container"]} style={{ backgroundColor: "#f1f1f1" }}>
                     <button
                         onClick={() => navigate('/')}
                         type="button"
-                        className={`${style.cancelbtn} ${style.button}`}
+                        className={`${style["cancelbtn"]} ${style["button"]}`}
                     >
                         Cancel
                     </button>

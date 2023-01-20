@@ -1,12 +1,15 @@
 import style from './ProfilePage.module.css';
 
-
-import { CompanyContext } from '../../context/CompanyContext';
-import { ProjectContext } from '../../context/ProjectContext';
 import * as projectService from '../../services/projectService';
 import { useContext, useEffect } from 'react';
 
-import { ProjectCard } from '../../components/ProjectCard/ProjectCard';
+import { CompanyContext } from '../../context/CompanyContext';
+import { ProjectContext } from '../../context/ProjectContext';
+
+import { ProjectGallery } from '../../components/ProjectGallery/ProjectGallery';
+import { ProfilePageHeader } from "../../components/ProfilePageHeader/ProfilePageHeader";
+import { Contacts } from '../../components/Contacts/Contacts';
+import { Credentials } from '../../components/Credentials/Credentials';
 
 const ProfilePage = () => {
 const { selectedUser } = useContext(CompanyContext);
@@ -22,78 +25,24 @@ useEffect(() => {
 
 return(
         
-            <main className={style.mainProfilPageSection}>
-                <div className={style.ProfilPageContainer}>
-                    <div className={style.companyInformation}>
-                        <div className={style.basicInformation}>
-                            <img className={style.peopleIMG} src={selectedUser.avatarImageUrl} alt=""/>
-                            <div className= {style.basicInformationTxt}>
-                                <div className={style.companyName}>
-                                    {selectedUser.companyName}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={style.companyNavigation}>
-                        <nav>
-                            <a href="#">About Us</a>
-                            <span>|</span>
-                            <a href="#">Projects</a>
-                            <span>|</span>
-                            <a href="#">Credentials</a>
-                            <span>|</span>
-                            <a href="#">Reviews</a>
-                        </nav>
-                    </div>
-                    <p className={style.detailedInformation}>
+            <main className={style["main"]}>
+                <div className={style["container"]}>
+                    <ProfilePageHeader selectedUser={selectedUser}/>
+                    <p className={style["summary"]}>
                         {selectedUser.companyInformation}
                     </p>
-                    <div className={style.projectsSection}>
+                    <div className={style["gallery-wrapper"]}>
                         <h2>{projectList.length} Projects</h2>
-                        <div className={style.projectsContainer}>
-                            {projectList.length > 0
-                                ? projectList.map(project => <ProjectCard key={project.id} project={project} />)
-                                : <h3>No projects yet</h3>
-                            }
+                        <div className={style["gallery"]}>
+                            <ProjectGallery/>
                         </div>
                     </div>
-                    <div className={style.credentialSection}>
-                        <h2>Credentials</h2>
-                        <div className={style.credentialContainer}>
-                            <div className={style.credentialCard}>
-                                <img src={require("../../assets/images/S45C-515020408290-page-001.jpg")} alt="" width="385px" height="257px"/>
-                            </div>
-                            <div className={style.credentialCard}>
-                                <img src={require("../../assets/images/DOC003-page-001.jpg")} alt="" width="385px" height="257px"/>
-                            </div>
-                            <div className={style.credentialCard}>
-                                <img src={require("../../assets/images/Udostoverenie-page-001.jpg")} alt="" width="385px" height="257px"/>
-                            </div>
-                        </div>
+                    <div className={style["credential-wrapper"]}>
+                        <h2> Credentials </h2>
+                        <Credentials/>
                     </div>
                 </div>
-                <div className={style.contactContainer}>
-                    <div className={style.messageContainer}>
-                        <div className={style.messageContainerTxt}>
-                            Contact with {selectedUser.companyName}
-                        </div>
-                        <button className={style.sendMessageBTN}>Send message</button>
-                    </div>
-                    <div className={style.contactInformationContainer}>
-                        <div className={style.contactInformationRow}>
-                            <img className={style.contactIcons} src={require('../../assets/images/icons/icons8-phone-24.png')}/>
-                            <div className={style.contactInformation}>{selectedUser.phoneNumber}</div>
-                        </div>
-                        <div className={style.contactInformationRow}>
-                            <img className={style.contactIcons} src={require('../../assets/images/icons/icons8-website-24.png')}/>
-                            <div className={style.contactInformation} >{selectedUser.url}</div>
-                        </div>
-                        <div className={style.contactInformationRow}>
-                            <img className={style.contactIcons} src={require('../../assets/images/icons/icons8-map-marker-24.png')}/>
-                            <div className={style.contactInformation}> {selectedUser.city} , {selectedUser.street}</div>
-                        </div>
-                    </div>
-                </div>
+                <Contacts selectedUser = {selectedUser}/>
             </main>
     );
 };

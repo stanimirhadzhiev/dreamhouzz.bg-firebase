@@ -1,11 +1,13 @@
 import style from './Login.module.css';
 
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { AuthContext } from '../../context/AuthContext';
-import { auth } from '../../firebaseConfig'
-
 import {useNavigate} from "react-router-dom";
 import { useState, useContext } from "react";
+
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+
+import { AuthContext } from '../../context/AuthContext';
+
 
 
 
@@ -36,15 +38,15 @@ const Login = () => {
     };
     return (
 
-        <div id="id01" className={style.modal} >
+        <div id="id01" className={style["modal"]} >
             <form
-                className={`${style.modalContent} ${style.animate}`}
+                className={`${style["modal-content"]} ${style["animate"]}`}
                 onSubmit={onSubmit}
             >
-                <div className={style.imgcontainer}>
+                <div className={style["img-container"]}>
                     <span
                         onClick={() => navigate('/')}
-                        className={style.close}
+                        className={style["close"]}
                         title="Close Modal"
                     >
                         ×
@@ -52,10 +54,10 @@ const Login = () => {
                     <img
                         src={require("../../assets/images/icons/avatar.png")}
                         alt="Avatar"
-                        className={style.avatar}
+                        className={style["avatar"]}
                     />
                 </div>
-                <div className={style.container}>
+                <div className={style["container"]}>
                     <label htmlFor="email">
                         <b>E-mail</b>
                     </label>
@@ -78,12 +80,12 @@ const Login = () => {
                         onChange={(e) => {setPassword(e.target.value)}}  
                     />
 
-                    <button className={style.button} type="submit">Login</button>
+                    <button className={style["button"]} type="submit">Login</button>
 
                 </div>
-                <div className={style.container} style={{ backgroundColor: "#f1f1f1" }}>
+                <div className={style["container"]} style={{ backgroundColor: "#f1f1f1" }}>
                     <button
-                        className={style.cancelbtn}
+                        className={style["cancelbtn"]}
                         type="button"
                         onClick={() => navigate('/')}
                     >

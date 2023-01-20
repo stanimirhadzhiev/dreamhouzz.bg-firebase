@@ -12,13 +12,13 @@
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.cardImg {
+.img {
     width: 280px;
     height: 150px;
     display: inline-block;
 }
 
-.companyName {
+.company-name {
     color: #319d3f;
     margin: 5px 10px;
     text-align: left;
@@ -27,7 +27,7 @@
     font-weight: bold;
 }
 
-.cardTxt {
+.project-name {
     margin-left: 10px;
     text-align: left;
 }

@@ -1,118 +1,77 @@
-.mainSection {
-    width: 100%;
-    margin-top: 170px;
-}
 
-.aboutUsAndRegistration {
+.container {
     width: 1500px;
     height: 800px;
     margin: auto;
     display: flex;
 }
 
-.aboutusContainer {
+.information-wrapper {
     width: 65%;
-    height: 100%;
     background-image: url(../../assets/images/huy-phan-HqLcI0Dyl4o-unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 300px;
+
 }
 
-.aboutusInfo {
+.information {
     width: 400px;
     height: 600px;
     margin: auto;
-    margin-top: 300px;
 }
 
-.registrationContainer {
+.registration-wrapper {
     width: 35%;
-    height: 100%;
     background-color: #113350;
     color: #fff;
+    padding-left: 50px;
+    padding-top: 150px;
+
 }
 
-.registrationContainer h2 {
+.registration-wrapper h2 {
     font-size: 36px;
-    font-weight: bold;
-    margin: 0px 50px;
 }
 
-.registrationContainer a {
-    color: #fff;
-    margin: 0px 50px;
-}
 
-.registrationContainer p {
-    margin: 20px 50px;
-}
 
-.registrationProgramName {
+.registration-title {
     height: 30px;
     width: 255px;
-    margin: 150px 50px 20px 50px;
     font-size: 25px;
     font-weight: bold;
 }
 
-.registrationProgramName img {
-    float: left;
-    width: 30px;
-    height: 30px;
+.icon{
     margin-right: 10px;
+    color: rgb(255, 188, 0);;
 }
 
-.regEmail {
-    margin-top: 30px;
-    margin-left: 50px;
-    width: 330px;
-    height: 25px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-}
 
-.regBTN {
-    margin-top: 15px;
-    margin-left: 50px;
-    width: 340px;
-    height: 35px;
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 150px;
     border-radius: 5px;
     font-size: 16px;
+    text-align: center;
     border: none;
     background-color: #0066c3;
     color: #fff;
     cursor: pointer;
 }
 
-.privacyPolicy {
-    width: 340px;
-    margin-left: 50px;
-    font-size: 12px;
+.button:hover{
+    opacity: 0.6;
 }
 
-.caroselSection {
+.gallery-wrapper{
     width: 1200px;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
+    padding: 100px;
+    margin: 20px;
 }
 
-.mostPopularCaroselContainer {
-    display: inline-block;
-    margin: 50px 0px;
-}
-
-.mostPopularCaroselContainer h2 {
-    margin-bottom: 20px;
-}
-
-.CaroselContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 14px;
-}
   
 
   

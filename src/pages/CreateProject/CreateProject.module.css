@@ -1,5 +1,5 @@
 .container{
-    max-width: 800px;
+    width: 810px;
     margin: auto;
     margin-top: 170px;
     margin-bottom: 100px;
@@ -11,58 +11,44 @@
 }
 
 .row{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
-.inputStyle{
+.input{
     width: 100%;
+    margin: 10px 0px;
     padding: 12px 20px;
-    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
-.button{
-    background-color: #113350;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.img-upload-button{
-    width: 120px;
-    height: 120px;
-    border-radius: 5px;
-    background-color: #113350;
-    color: white;
-    font-size: 120px;
-    text-align: center;
-    line-height: 100px;
-    
-}
-
-.img-upload{
-    cursor: pointer;
-}
-
 .col{
     display:flex;
     flex-flow: row wrap;
-    align-content: space-between;
     margin: auto;
 }
 
 .card-img{
-    width: 200px;
+    width: 190px;
     height: 100px;
     border-radius: 10px;
-    align-content: space-between;
-    border: #ccc 2px solid;
+    margin: 5px;
     background-color: #fff;
     color: #ccc;
+}
+
+.button{
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #113350;
+    color: white;
+    cursor: pointer;
+}
+
+
+.img-upload-button{
+    font-size: 70px;
+    margin: 20px;
+    cursor: pointer;
 }

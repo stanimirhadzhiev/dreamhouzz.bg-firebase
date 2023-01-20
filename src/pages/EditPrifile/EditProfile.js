@@ -93,7 +93,7 @@ useEffect(() => {
   }, []);
   
     return (
-        <div className={style.container}>
+        <main className={style.container}>
             <h1 className={style.title}>Company information</h1>
             <form className={style.formContainer}  >
                 <div className={style.row}>
@@ -286,7 +286,7 @@ useEffect(() => {
                 }
                 
             </form>
-        </div>
+        </main>
     );
 };
 

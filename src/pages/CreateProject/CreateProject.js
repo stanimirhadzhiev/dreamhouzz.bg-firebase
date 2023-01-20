@@ -14,6 +14,7 @@ import { CompanyContext } from '../../context/CompanyContext';
 
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import { MdOutlineAddCircle } from "react-icons/md";
 
 
 
@@ -60,16 +61,15 @@ export const CreateProject = () => {
     }, [imageUpload]);
    
     return(
-        <div className={style.container}>
-            <h1 className={style.title}>Project information</h1>
-            <form className={style.formContainer}  >
-                
-                <div className={style.row}>
+        <div className={style["container"]}>
+            <h1 className={style["title"]}>Project information</h1>
+            <form>
+                <div className={style["row"]}>
                     <label htmlFor="projectName">
                         <b>Project name</b>
                     </label>
                     <input
-                        className={style.inputStyle}
+                        className={style["input"]}
                         type="text"
                         placeholder="Project name"
                         name="projectName"
@@ -79,12 +79,12 @@ export const CreateProject = () => {
                     />
                 </div>
 
-                <div className={style.row}>
+                <div className={style["row"]}>
                     <label htmlFor="projectInformation">
                         <b>Project information</b>
                     </label>
                     <textarea 
-                        className={style.inputStyle} 
+                        className={style["input"]} 
                         name="projectInformation" 
                         id="projectInformation" 
                         placeholder="Project information"
@@ -94,21 +94,23 @@ export const CreateProject = () => {
                     </textarea>
                 </div>
 
-                <div className={style.row}>
+                <div className={style["row"]}>
                     <div className={style["col"]}>
                         <div key={user.uid }>
                             {imageUrls.map((url) => {
                                 return <img src={url}  className={style["card-img"]}/>;
                             })}
                         </div>
-                        <div className={style["card-img"]}>
-                            <label htmlFor="uploadImg" className={style["img-upload"]}>Add picture</label>
-                            <input  type="file" id="uploadImg" name="uploadImg" hidden onChange={(e) => {setImageUpload(e.target.files[0])}}/>
+                        <div >
+                            <label htmlFor="uploadImg">
+                                <MdOutlineAddCircle className={style["img-upload-button"]} />
+                            </label>
+                            <input type="file" id="uploadImg" name="uploadImg" hidden onChange={(e) => { setImageUpload(e.target.files[0]) }} />
                         </div>
                     </div>
                 </div>
 
-                <button onClick={createProject} className={style.button}> Create Project</button>
+                <button onClick={createProject} className={style["button"]}> Create Project</button>
             </form>
         </div>
     );

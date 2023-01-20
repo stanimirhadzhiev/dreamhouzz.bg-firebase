@@ -4,15 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return(
-        <footer className={style.footerSection}>
-            <div className={style.footerContainer}>
-                <div className={style.footerContainerFirstColumn}>
-                    <div className={style.logo}>
-                        <Link to="/" className={style.logoImg}>
-                            <img  src={require("../../assets/images/logo2.png")} alt="" />
-                        </Link>
-                    </div>
-                    <div className={style.socialMediaContainer}>
+        <footer className={style["container"]}>
+                <div className={style["column"]}>
+                    <Link to="/" className={style["logo"]}>
+                        <img  src={require("../../assets/images/logo2.png")} alt="" />
+                    </Link>
+                    <div className={style["social-media-wrapper"]}>
                         <Link to="#">
                             <img src={require("../../assets/images/icons/icons8-facebook-48.png")} alt="" />
                         </Link>
@@ -23,11 +20,11 @@ const Footer = () => {
                             <img src={require("../../assets/images/icons/icons8-linkedin-48.png")} alt="" />
                         </Link>
                     </div>
-                    <div className={style.copyright}>
+                    <div className={style["copyright"]}>
                         ©2022 dreamhouzz.bg 
                     </div>
                 </div>
-                <div className={style.footerContainerSecondColumn}>
+                <div className={style["column"]}>
                     <h4>Category:</h4>
                     <Link to="/architecture-companies">
                         <div>Architects & Building Designers</div>
@@ -42,10 +39,9 @@ const Footer = () => {
                         <div>Construction and renovation</div>
                     </Link>
                 </div>
-                <div className={style.footerContainerThirdColumn}>
+                <div className={style["column"]}>
                     <h4>About us:</h4>
                 </div>
-            </div>
         </footer>
     );
 };

@@ -1,8 +1,9 @@
+import style from './ProjectCard.module.css';
+
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 
 import { ProjectContext } from '../../context/ProjectContext';
-import style from './ProjectCard.module.css';
 
 
 export const ProjectCard = ({project}) =>{
@@ -16,16 +17,16 @@ export const ProjectCard = ({project}) =>{
     };
 
     return(
-        <div className={style.card} onClick= {clickHandler}>
+        <div className={style["card"]} onClick= {clickHandler}>
             <img
-                className={style.cardImg}
+                className={style["img"]}
                 src={project.imageUrls[0]}
                 alt={project.projectName}
                 width="280px"
                 height="150px"
             />
-            <div className={style.companyName}>{project.company}</div>
-            <p className={style.cardTxt}>
+            <div className={style["company-name"]}>{project.company}</div>
+            <p className={style["project-name"]}>
                 {project.projectName}
             </p>
         </div>

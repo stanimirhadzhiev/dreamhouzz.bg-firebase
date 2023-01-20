@@ -1,10 +1,11 @@
 import style from './ListOfCompanies.module.css';
 
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 import { collection, query, where, getDocs} from "firebase/firestore";
 import { db } from '../../firebaseConfig';
 
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 import { Company } from "./Company";
 
@@ -47,11 +48,10 @@ export const ListOfCompanies = () => {
       }, [category]);
       
     return (
-        <main className={style.tableMainSection}>
-            <div className={style.filterSection}>
+        <main className={style["main"]}>
+            <div className={style["header"]}>
                 <h1>{category}</h1>
-                <div className={style.dropDown}>
-                    <select id="city" name="city" className={style.selectCity}>
+                <select id="city" name="city" className={style["dropdown"]}>
                         <option >All Cities</option>
                         <option >Sofia</option>
                         <option >Plovdiv</option>
@@ -81,10 +81,9 @@ export const ListOfCompanies = () => {
                         <option >Lovech</option>
                         <option >Razgrad</option>
                         <option >Smolian</option>
-                    </select>
-                </div>
+                </select>
             </div>
-            <div className={style.tableSection}>
+            <div className={style["table"]}>
                 {userList.length > 0
                     ? userList.map(user => <Company key={user.id} user={user} />)
                     : <h3 className="no-articles">No companies yet</h3>

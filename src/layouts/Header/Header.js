@@ -1,13 +1,15 @@
 import style from './Header.module.css';
 
+import * as userService from '../../services/userService';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { MdManageAccounts, MdLogout } from "react-icons/md";
+import v4 from 'react-uuid';
+
 import { AuthContext } from '../../context/AuthContext';
 import { CompanyContext } from '../../context/CompanyContext';
 import { ProjectContext } from '../../context/ProjectContext';
-import * as userService from '../../services/userService';
 
-import { Link, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import v4 from 'react-uuid';
 
 
 
@@ -31,99 +33,90 @@ const Header = () => {
     
     
     return (
-        <header className={style.headerSection}>
-            <div className={style.headerFirstContainer}>
-                <div className={style.logo}>
+        <header className={style["header"]}>
+            <div className={style["container"]}>
+                <div className={style["logo"]}>
                     <Link to="/">
                         <img src={require("../../assets/images/logo.png")} alt="No image" />
                     </Link>
                 </div>
-                <div className={style.searchSection}>
-                    <Link className={style.srcBTN} to="#"></Link>
+                <div className={style["search-wrapper"]}>
+                    <Link className={style["search-button"]} to="#"></Link>
                     <input
-                    className={style.searchBox}
+                    className={style["search-box"]}
                     type="search"
                     name="searchBox"
                     id="searchBox"
                     />
                 </div>
-                <div className={style.regContainer}>
-                   {user ?
-                           <div className={style.user}>
-                                
-                                <button className={style.button}>
-                                    <div className={style.dropdown}>
-                                        {/* <img  className={style.avatarIMG} src="images/icons/avatar.png" /> */}
-                                        <div className={style.signInBTNtext}>
-                                            {/* Профил */}
-                                            <span className="material-symbols-outlined">manage_accounts</span>
-                                            <span className="material-symbols-outlined">arrow_drop_down</span>
-                                        </div>
-                                        <div className={style["dropdown-content"]}>
-                                            <h3 className={style["dropdown-header"]}>{user.email}</h3>
-                                            <Link onClick= {clickHandler}>Profile</Link>
-                                            <Link to={`/${user.uid}/edit-profile`}>Edit profile</Link>
-                                            <Link  onClick={createProjectId}>Create project</Link>
-                                            <Link to="#">Add credentials</Link>
-                                            <Link to="#">Change password</Link>
-                                            <Link to="#">Change e-mail</Link>
-                                        </div>
-                                    </div>
-                                </button>
-                                
-                                <button className={style.button}>
-                                    <Link to="/logout">
-                                        <span className="material-symbols-outlined">Logout</span>
-                                    </Link>
-                                </button>
+                <div>
+                    {user ?
+                        <div className={style["user"]}>
+                            <div className={style["dropdown"]}>
+                                <MdManageAccounts className={style["icons"]} />
+                                <div className={style["dropdown-content"]}>
+                                    <h3 className={style["dropdown-header"]}>{user.email}</h3>
+                                    <Link onClick={clickHandler}>Profile</Link>
+                                    <Link to={`/${user.uid}/edit-profile`}>Edit profile</Link>
+                                    <Link onClick={createProjectId}>Create project</Link>
+                                    <Link to="#">Add credentials</Link>
+                                    <Link to="#">Change password</Link>
+                                    <Link to="#">Change e-mail</Link>
+                                </div>
                             </div>
+
+                            <Link to="/logout">
+                                <MdLogout className={style["icons"]} />
+                            </Link>
+                        </div>
                         :
-                           <div className={style.guest}>
-                                <div className={style.button}>
-                                    <Link to="/login"  >
-                                        <span className={style.signInBTNtext}>Login</span>
-                                    </Link>
-                                </div>
-                                
-                                <div className={style.button}>
-                                    <Link to ="/register"  >
-                                        <span className={style.registrationBTNtext}>Register</span>
-                                    </Link>
-                                </div>
+                        <div className={style["guest"]}>
+                            <div className={style["button"]}>
+                                <Link to="/login"  >
+                                    <span>Login</span>
+                                </Link>
                             </div>
-                    
-                   }
-                    
-                    
+
+                            <div className={style["button"]}>
+                                <Link to="/register"  >
+                                    <span className={style["reg-button-text"]}>Register</span>
+                                </Link>
+                            </div>
+                        </div>
+                    }  
                 </div>
             </div>
-            <nav className={style.headerNavigation}>
-                <div className={style.navContainer}>
-                    <Link to="/architecture-companies" className={style.navBTN}>
-                        <div className={style.architectsImgBTN} />
-                        <div className={style.navTxtBTN}>
-                            Architects & Building Designers
-                        </div>
-                    </Link>
+            <nav className={style["nav"]}>
+                <ul className={style["nav-wrapper"]}>
+                    <li>
+                        <Link to="/architecture-companies" className={style["nav-button"]}>
+                                Architects & Building Designers
+                        </Link>
+                    </li>
                     <span>|</span>
-                    <Link to="/interior-design" className={style.navBTN}>
-                        <div className={style.interiorDesignImgBTN} />
-                        <div className={style.navTxtBTN}>Interior Design</div>
-                    </Link>
+                    <li>
+                        <Link to="/interior-design" className={style["nav-button"]}>
+                            Interior Design
+                        </Link>
+                    </li>
                     <span>|</span>
-                    <Link to="/landscape-architect" className={style.navBTN}>
-                        <div className={style.landscapeImgBTN} />
-                        <div className={style.navTxtBTN}>Landscape Architects</div>
-                    </Link>
+                    <li>
+                        <Link to="/landscape-architect" className={style["nav-button"]}>
+                            Landscape Architects
+                        </Link>
+                    </li>
                     <span>|</span>
-                    <Link to="/building-companies" className={style.navBTN}>
-                        <div className={style.buildingImgBTN} />
-                        <div className={style.navTxtBTN}>Construction and renovation</div>
-                    </Link>
-                </div>
+                    <li>
+                        <Link to="/building-companies" className={style["nav-button"]}>
+                            Construction and renovation
+                        </Link>
+                    </li>
+                </ul>
             </nav>
         </header>  
     );
 };
 
 export default Header;
+
+

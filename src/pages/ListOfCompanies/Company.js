@@ -1,9 +1,11 @@
 import style from './Company.module.css';
 
-import { CompanyContext } from '../../context/CompanyContext';
-
+import { DynamicStar } from 'react-dynamic-star';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
+
+import { CompanyContext } from '../../context/CompanyContext';
+
 
 export const Company = ({user}) => {
     const {setSelectedUser} = useContext(CompanyContext);
@@ -16,31 +18,33 @@ export const Company = ({user}) => {
     };
     
     return(
-            <div className={style.tableRow} onClick= {clickHandler}>
-                <div className={style.tableRowIMG}>
-                    <img src={require("../../assets/images/pexels-photo-1571460.jpeg")} alt="" />
-                </div>
-                <div className={style.companyInformation}>
-                    <div className={style.basicInformation}>
-                        <img className={style.peopleIMG} src={user.avatarImageUrl} alt="" />
-                        <div className={style.basicInformationTxt}>
-                            <div className={style.companyName}>{user.companyName}</div>
-                            <div className={style.ratingSection}>
-                                <span>4.0</span>
-                                <span className={`${style.star} ${style.star1}`} />
-                                <span className={`${style.star} ${style.star2}`} />
-                                <span className={`${style.star} ${style.star2}`} />
-                                <span className={`${style.star} ${style.star2}`} />
-                                <span className={`${style.star} ${style.star2}`} />
-                                <span className={style.numReviews}>30 Reviews</span>
+            <div className={style["container"]} onClick= {clickHandler}>
+                <img src={require("../../assets/images/pexels-photo-1571460.jpeg")} alt=""  className={style["image"]}/>
+                <div className={style["information-wrapper"]}>
+                    <div className={style["header"]}>
+                        <img className={style["avatar"]} src={user.avatarImageUrl} alt="" />
+                        <div className={style["col"]}>
+                            <div className={style["company-name"]}>{user.companyName}</div>
+                            <div className={style["rating-wrapper"]}>
+                                <span>2.5</span>
+                                <DynamicStar
+                                    rating={2.5}
+                                    outlined={2.5}
+                                    width={15}
+                                    height={15}
+                                    sharpnessStar={2.5}
+                                    totalStars={5}
+                                    emptyStarColor={"transparent"}
+                                    fullStarColor={"#FFBC00"}
+                                />
+                                <span>30 Reviews</span>
                             </div>
                         </div>
-                        <div></div>
-                        <div className={style.city}>
+                        <div className={style["city"]}>
                             {user.city}
                         </div>
                     </div>
-                    <div className={style.moreInformation}>
+                    <div className={style ["information"]}>
                         {user.companyInformation}
                     </div>
                 </div>

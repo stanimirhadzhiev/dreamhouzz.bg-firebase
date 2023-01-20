@@ -35,7 +35,7 @@
     opacity: 0.8;
   }
   /* Center the image and position the close button */
-  .imgcontainer {
+  .img-container {
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
@@ -75,7 +75,7 @@
     padding-top: 60px;
   }
   /* Modal Content/Box */
-  .modalContent {
+  .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto;
     /* 5% from the top, 15% from the bottom and centered */
